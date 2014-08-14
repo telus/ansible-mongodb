@@ -1,0 +1,48 @@
+- name: Directory Exists | /data/log/mongodb
+  file:
+    state: directory
+    path: /data/log/mongodb
+    owner: mongodb
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - logging
+    - mongodb
+
+- name: Upload Config | beaver | mongodb
+  template:
+    src: etc/beaver/conf.d/mongodb
+    dest: /etc/beaver/conf.d/mongodb
+  tags:
+    - configuration
+    - template-configuration
+    - logging
+    - using-beaver
+    - mongodb
+
+- name: Configure | MongoDB | logpath 
+  lineinfile:
+    state: present
+    dest: /etc/mongod.conf
+    regexp: '^#* *logpath ?\='
+    line: 'logpath = /data/log/mongodb/mongodb.log'
+  notify: Reload Service | mongodb
+  tags:
+    - configuration
+    - precise-configuration
+    - logging
+    - mongodb
+
+- name: Configure | MongoDB | logappend
+  lineinfile:
+    state: present
+    dest: /etc/mongod.conf
+    regexp: '^#* *logappend ?\='
+    line: 'logappend = true'
+  notify: Reload Service | mongodb
+  tags:
+    - configuration
+    - precise-configuration
+    - logging
+    - mongodb

@@ -1,0 +1,49 @@
+---
+- name: Directory Exists | /data/log/mongodb
+  file:
+    state: directory
+    path: /var/run/mongodb
+    owner: mongodb
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - logging
+    - mongodb
+
+- name: Upload Config | monit | mongodb
+  template:
+    src: etc/monit/conf.d/mongodb
+    dest: /etc/monit/conf.d/mongodb
+  notify: Reload Service | monit
+  tags:
+    - configuration
+    - template-configuration
+    - using-monit
+    - mongodb
+
+- name: Trigger All Callbacks
+  meta: flush_handlers
+
+- name: Confirm Monitoring | mongodb
+  monit:
+    state: present
+    name: mongodb
+  tags:
+    - validation
+    - using-monit
+    - mongodb
+
+- name: Configure | MongoDB | pidfilepath
+  lineinfile:
+    state: present
+    dest: /etc/mongod.conf
+    regexp: '^#* *pidfilepath ?\='
+    line: 'pidfilepath = /var/run/mongodb/mongodb.pid'
+  notify: Reload Service | mongodb
+  tags:
+    - configuration
+    - precise-configuration
+    - pidfile
+    - monitoring
+    - using-monit

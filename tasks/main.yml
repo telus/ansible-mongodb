@@ -1,0 +1,6 @@
+--- 
+- include: repositories.yml
+- include: packages.yml
+- { include: monitoring.yml, when: mongodb_server }
+- { include: logging.yml, when: mongodb_server }
+- { include: config.yml, when: mongodb_server }

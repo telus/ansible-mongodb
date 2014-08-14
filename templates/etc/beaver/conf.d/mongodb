@@ -1,0 +1,3 @@
+[/data/log/mongodb/mongodb.log]
+type: mongodb
+tags: service

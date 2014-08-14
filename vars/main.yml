@@ -1,0 +1,4 @@
+---
+mongodb_server: no
+mongodb_client: no
+mongodb_server_accepts_external_connections: no

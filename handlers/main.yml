@@ -1,0 +1,17 @@
+---
+- name: Update Package Cache
+  apt:
+    update_cache: yes
+
+- name: Reload Service | monit
+  command: monit reload
+  tags:
+    - monit
+
+- name: Reload Service | mongodb
+  monit:
+    state: restarted
+    name: mongodb
+  tags:
+    - monit
+    - disruptive
