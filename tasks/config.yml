@@ -21,4 +21,4 @@
     - configuration
     - precise-configuration
     - mongodb
-  when: mongodb_server_accepts_external_connections
+  when: mongodb_accepts_external_connections
