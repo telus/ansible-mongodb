@@ -1,19 +1,4 @@
 ---
-- name: Import Signing Key | mongodb
-  apt_key:
-    state: present
-    keyserver: 'hkp://keyserver.ubuntu.com:80'
-    id: '7F0CEB10'
-
-- name: Import Repository | mongodb
-  apt_repository:
-    state: present
-    repo: 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'
-  notify: Update Package Cache
-
-- name: Trigger All Callbacks
-  meta: flush_handlers
-
 - name: Install Packages | apt
   apt:
     state: latest
@@ -21,6 +6,13 @@
   with_items:
     - mongodb-org-server
   when: mongodb_server
+
+- name: Service Stopped | mongodb
+  service:
+    name: mongod
+    state: stopped
+  tags:
+    - disruptive
 
 - name: Install Packages | apt
   apt:

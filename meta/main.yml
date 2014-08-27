@@ -1,0 +1,5 @@
+---
+dependencies:
+  - role: meta/repository
+    repository_key: '0x9ecbec467f0ceb10'
+    repository_url: 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'
