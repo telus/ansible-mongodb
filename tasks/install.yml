@@ -11,6 +11,7 @@
   service:
     name: mongod
     state: stopped
+  when: mongodb_server
   tags:
     - disruptive
 
