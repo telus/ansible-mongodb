@@ -5,6 +5,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *auth ?\='
     line: 'auth = true'
+  when: mongodb_auth_enabled
   notify: Reload Service | mongodb
   tags:
     - configuration
@@ -16,9 +17,9 @@
     state: absent
     dest: /etc/mongod.conf
     regexp: '^#* *bind_ip'
+  when: mongodb_accepts_external_connections
   notify: Reload Service | mongodb
   tags:
     - configuration
     - precise-configuration
     - mongodb
-  when: mongodb_accepts_external_connections

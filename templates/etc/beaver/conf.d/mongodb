@@ -1,3 +1,3 @@
-[/data/log/mongodb/mongodb.log]
+[{{ mongodb_log_path }}]
 type: mongodb
 tags: service

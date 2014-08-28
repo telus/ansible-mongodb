@@ -1,8 +1,8 @@
-- name: Directory Exists | /data/log/mongodb
+- name: "Directory Exists | {{ mongodb_log_root }}"
   file:
     state: directory
-    path: /data/log/mongodb
-    owner: mongodb
+    path: "{{ mongodb_log_root }}"
+    owner: "{{ mongodb_user }}"
     group: wcadmin
     mode: 0775
   tags:
@@ -26,7 +26,7 @@
     state: present
     dest: /etc/mongod.conf
     regexp: '^#* *logpath ?\='
-    line: 'logpath = /data/log/mongodb/mongodb.log'
+    line: "logpath = {{ mongodb_log_path }}"
   notify: Reload Service | mongodb
   tags:
     - configuration

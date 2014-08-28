@@ -1,4 +1,13 @@
 ---
-mongodb_server: no
+mongodb_user: mongodb
+
+mongodb_runtime_root: "{{ runtime_root }}/mysqld"
+mongodb_pidfile_path: "{{ mongodb_runtime_root }}/mongodb.pid"
+
+mongodb_log_root: "{{ log_root }}/mongodb"
+mongodb_log_path: "{{ mongodb_log_root }}/mongodb.log"
+
 mongodb_client: no
+mongodb_server: no
 mongodb_accepts_external_connections: no
+mongodb_auth_enabled: no
