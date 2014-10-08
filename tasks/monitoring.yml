@@ -25,15 +25,6 @@
 - name: Trigger All Callbacks
   meta: flush_handlers
 
-- name: Confirm Monitoring | mongodb
-  monit:
-    state: present
-    name: mongodb
-  tags:
-    - validation
-    - using-monit
-    - mongodb
-
 - name: Configure | MongoDB | pidfilepath
   lineinfile:
     state: present
