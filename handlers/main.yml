@@ -2,12 +2,12 @@
 - name: Reload Service | monit
   command: monit reload
   tags:
-    - monit
+    - using-monit
 
 - name: Reload Service | mongodb
   monit:
     state: restarted
     name: mongodb
   tags:
-    - monit
+    - using-monit
     - disruptive
