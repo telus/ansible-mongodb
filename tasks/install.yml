@@ -7,6 +7,12 @@
     - mongodb-org-server
   when: mongodb_server
 
+- name: Install Packages | pip
+  pip:
+    state: latest
+    name: pymongo
+  when: mongodb_server
+
 - name: Service Stopped | mongodb
   service:
     name: mongod
@@ -22,3 +28,10 @@
   with_items:
     - mongodb-org-shell
   when: mongodb_client
+
+- name: Create Database User
+  mongodb_user:
+    database: "{{ database_name | default(project) }}"
+    name: "{{ database_username | default(project) }}"
+    password: "{{ database_password | mandatory }}"
+  when: mongodb_server
