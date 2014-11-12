@@ -13,14 +13,6 @@
     name: pymongo
   when: mongodb_server
 
-- name: Service Stopped | mongodb
-  service:
-    name: mongod
-    state: stopped
-  when: mongodb_server
-  tags:
-    - disruptive
-
 - name: Install Packages | apt
   apt:
     state: latest
