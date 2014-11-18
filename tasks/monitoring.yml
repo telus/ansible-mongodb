@@ -1,0 +1,14 @@
+---
+- name: Configure | MongoDB | pidfilepath
+  lineinfile:
+    state: present
+    dest: /etc/mongod.conf
+    regexp: '^#* *pidfilepath ?\='
+    line: "pidfilepath = {{ mongodb_pidfile_path }}"
+  notify: Reload Service | mongodb
+  tags:
+    - configuration
+    - precise-configuration
+    - pidfile
+    - monitoring
+    - using-monit
