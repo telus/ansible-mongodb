@@ -10,17 +10,6 @@
     - logging
     - mongodb
 
-- name: Upload Config | beaver | mongodb
-  template:
-    src: etc/beaver/conf.d/mongodb
-    dest: /etc/beaver/conf.d/mongodb
-  tags:
-    - configuration
-    - template-configuration
-    - logging
-    - using-beaver
-    - mongodb
-
 - name: Configure | MongoDB | logpath 
   lineinfile:
     state: present
