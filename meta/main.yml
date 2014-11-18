@@ -6,3 +6,9 @@ dependencies:
   - role: meta/monitor
     monitor_name: mongodb
     monitor_pidfile: "{{ mongodb_pidfile_path }}"
+
+  - role: meta/logging
+    logging_name: mongodb 
+    logging_files:
+      - tags: 'service'
+        path: "{{ mongodb_log_path }}"
