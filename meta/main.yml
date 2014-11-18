@@ -6,6 +6,7 @@ dependencies:
   - role: meta/monitor
     monitor_name: mongodb
     monitor_pidfile: "{{ mongodb_pidfile_path }}"
+    monitor_user: "{{ mongodb_user }}"
 
   - role: meta/logging
     logging_name: mongodb 
