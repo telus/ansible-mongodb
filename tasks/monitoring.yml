@@ -11,20 +11,6 @@
     - logging
     - mongodb
 
-- name: Upload Config | monit | mongodb
-  template:
-    src: etc/monit/conf.d/mongodb
-    dest: /etc/monit/conf.d/mongodb
-  notify: Reload Service | monit
-  tags:
-    - configuration
-    - template-configuration
-    - using-monit
-    - mongodb
-
-- name: Trigger All Callbacks
-  meta: flush_handlers
-
 - name: Configure | MongoDB | pidfilepath
   lineinfile:
     state: present
