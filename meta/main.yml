@@ -13,6 +13,7 @@ dependencies:
     logging_name: mongodb 
     logging_user: "{{ mongodb_user }}"
     logging_files:
-      - tags: 'service'
+      - tags:
+          - service
         path: "{{ mongodb_log_path }}"
     when: mongodb_server
