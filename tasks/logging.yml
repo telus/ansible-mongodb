@@ -1,4 +1,15 @@
----
+- name: "Directory Exists | {{ mongodb_log_root }}"
+  file:
+    state: directory
+    path: "{{ mongodb_log_root }}"
+    owner: "{{ mongodb_user }}"
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - logging
+    - mongodb
+
 - name: Configure | MongoDB | logpath 
   lineinfile:
     state: present
