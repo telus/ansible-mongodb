@@ -3,7 +3,7 @@
     state: directory
     path: "{{ mongodb_log_root }}"
     owner: "{{ mongodb_user }}"
-    group: wcadmin
+    group: wcdevelop
     mode: 0775
   tags:
     - directory-structure
