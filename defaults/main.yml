@@ -9,5 +9,5 @@ mongodb_log_path: "{{ mongodb_log_root }}/mongod.log"
 
 mongodb_client: no
 mongodb_server: no
-mongodb_accepts_external_connections: no
+mongodb_accepts_external_connections: yes
 mongodb_auth_enabled: no
