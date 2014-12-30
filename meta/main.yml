@@ -15,3 +15,6 @@ dependencies:
       - tags:
           - service
         path: "{{ mongodb_log_path }}"
+
+  - role: package/logrotate
+    logrotate_name: mongodb
