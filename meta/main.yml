@@ -9,7 +9,7 @@ dependencies:
     monitor_user: "{{ mongodb_user }}"
     when: mongodb_server
 
-  - role: meta/logging
+  - role: meta/log-aggregator
     logging_name: mongodb 
     logging_files:
       - tags:
