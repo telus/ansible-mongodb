@@ -10,7 +10,7 @@ dependencies:
     when: mongodb_server
 
 # New logging method awaiting mongodb regex formatting
-#   - role: packages/fluentd
+#   - role: package/fluentd
 #     fluentd_sources:
 #       - path: "{{ mongodb_log_path }}"
 #         format: ''
