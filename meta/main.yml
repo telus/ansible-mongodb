@@ -9,12 +9,12 @@ dependencies:
     monitor_user: "{{ mongodb_user }}"
     when: mongodb_server
 
-  - role: meta/log-aggregator
-    logging_name: mongodb 
-    logging_files:
-      - tags:
-          - service
-        path: "{{ mongodb_log_path }}"
+# New logging method awaiting mongodb regex formatting
+#   - role: packages/fluentd
+#     fluentd_sources:
+#       - path: "{{ mongodb_log_path }}"
+#         format: ''
+#         tag: mongodb.service
 
   - role: package/logrotate
     logrotate_name: mongodb
