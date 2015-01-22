@@ -1,10 +1,10 @@
 ---
 mongodb_user: mongodb
 
-mongodb_runtime_root: "{{ runtime_root }}/mongodb"
+mongodb_runtime_root: "{{ runtime_root | default('/var/run') }}/mongodb"
 mongodb_pidfile_path: "{{ mongodb_runtime_root }}/mongod.pid"
 
-mongodb_log_root: "{{ log_root }}/mongodb"
+mongodb_log_root: "{{ log_root | default('/var/log') }}/mongodb"
 mongodb_log_path: "{{ mongodb_log_root }}/mongod.log"
 
 mongodb_client: no
