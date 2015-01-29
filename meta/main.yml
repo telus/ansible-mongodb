@@ -9,12 +9,11 @@ dependencies:
     monitor_user: "{{ mongodb_user }}"
     when: mongodb_server
 
-# New logging method awaiting mongodb regex formatting
-#   - role: package/fluentd
-#     fluentd_sources:
-#       - path: "{{ mongodb_log_path }}"
-#         format: ''
-#         tag: mongodb.service
+  - role: package/fluentd
+    fluentd_sources:
+      - path: "{{ mongodb_log_path }}"
+        format: '^(?<date_time>(?<date>[^T]*)T(?<time>[^\+]*)\+(?<time_offset>\d{4})) \[(?<placeholder_name>[^]]*)\] (?<message>.*)'
+        tag: mongodb.service
 
   - role: package/logrotate
     logrotate_name: mongodb
