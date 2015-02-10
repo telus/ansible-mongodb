@@ -1,5 +1,5 @@
 ---
-- name: Configure | MongoDB 
+- name: Configure | MongoDB | mongodb auth enabled
   lineinfile:
     state: present
     dest: /etc/mongod.conf
@@ -12,7 +12,7 @@
     - precise-configuration
     - mongodb
 
-- name: Configure | MongoDB  
+- name: Configure | MongoDB | accepts external connections
   lineinfile:
     state: absent
     dest: /etc/mongod.conf
