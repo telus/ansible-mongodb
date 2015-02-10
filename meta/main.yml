@@ -6,7 +6,8 @@ dependencies:
   - role: meta/monitor
     monitor_name: mongodb
     monitor_pidfile: "{{ mongodb_pidfile_path }}"
-    monitor_user: "{{ mongodb_user }}"
+    monitor_start_command: /usr/sbin/service mongod start
+    monitor_stop_command: /usr/sbin/service mongod stop
     when: mongodb_server
 
   - role: package/fluentd
