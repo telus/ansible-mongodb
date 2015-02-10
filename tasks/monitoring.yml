@@ -13,7 +13,7 @@
 
 - name: Directory Exists | /var/lib/mongodb
   file:
-    state: present
+    state: directory
     path: /var/lib/mongodb
     owner: "{{ mongodb_user }}"
     group: wcdevelop
