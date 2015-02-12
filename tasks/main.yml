@@ -1,5 +1,4 @@
 --- 
 - include: install.yml
-- { include: monitoring.yml, when: mongodb_server }
-- { include: logging.yml,    when: mongodb_server }
 - { include: configure.yml,  when: mongodb_server }
+- { include: logging.yml,    when: mongodb_server }
