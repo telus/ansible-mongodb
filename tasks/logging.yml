@@ -10,7 +10,7 @@
     - directory-structure
     - logging
     - mongodb
-    
+
 - name: "File is Writable | {{ mongodb_log_path }}"
   file:
     state: touch
