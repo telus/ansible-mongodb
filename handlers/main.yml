@@ -2,6 +2,6 @@
 - name: Reload Service | mongodb
   service:
     state: reloaded
-    name: mongodb
+    name: mongod
   tags:
     - disruptive
