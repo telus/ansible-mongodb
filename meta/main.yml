@@ -20,4 +20,4 @@ galaxy_info:
       versions:
       - trusty
   categories:
-    - system
+    - database:nosql
