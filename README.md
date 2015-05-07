@@ -24,15 +24,15 @@ Tunables
 
 Dependencies
 ------------
-* [colstrom.apt-repository](https://github.com/colstrom/ansible-apt-repository/)
-* [colstrom.logrotate](https://github.com/colstrom/ansible-logrotate/)
-* [colstrom.fluentd](https://github.com/colstrom/ansible-fluentd/)
+* [telusdigital.apt-repository](https://github.com/telusdigital/ansible-apt-repository/)
+* [telusdigital.logrotate](https://github.com/telusdigital/ansible-logrotate/)
+* [telusdigital.fluentd](https://github.com/telusdigital/ansible-fluentd/)
 
 Example Playbook
 ----------------
     - hosts: servers
       roles:
-         - role: colstrom.mongodb
+         - role: telusdigital.mongodb
            mongodb_server: yes
 
 License
