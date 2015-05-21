@@ -26,4 +26,4 @@
     database: "{{ database_name | default(project) }}"
     name: "{{ database_username | default(project) }}"
     password: "{{ database_password | mandatory }}"
-  when: mongodb_server
+  when: mongodb_server and mongodb_auth_enabled
