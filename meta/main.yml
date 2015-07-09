@@ -4,7 +4,7 @@ dependencies:
     repository_key: "0x9ecbec467f0ceb10"
     repository_url: "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
   - role: telusdigital.logrotate
-    logrotate_name: mongod
+    logrotate_name: mongodb
   - role: telusdigital.fluentd
     fluentd_config_name: mongodb
     fluentd_sources:
