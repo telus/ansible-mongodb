@@ -4,8 +4,9 @@ dependencies:
     repository_key: "0x9ecbec467f0ceb10"
     repository_url: "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
   - role: telusdigital.logrotate
-    logrotate_name: mongod
+    logrotate_name: mongodb
   - role: telusdigital.fluentd
+    fluentd_config_name: mongodb
     fluentd_sources:
       - path: "{{ mongodb_log_path }}"
         format: '^(?<date_time>(?<date>[^T]*)T(?<time>[^\+]*)\+(?<time_offset>\d{4})) \[(?<placeholder_name>[^]]*)\] (?<message>.*)'
