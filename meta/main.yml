@@ -6,7 +6,7 @@ dependencies:
   - role: telusdigital.logrotate
     logrotate_name: mongod
   - role: telusdigital.fluentd
-    fluentd_config_name: mongodb
+    fluentd_config_name: mongod
     fluentd_sources:
       - path: "{{ mongodb_log_path }}"
         format: '^(?<date_time>(?<date>[^T]*)T(?<time>[^\+]*)\+(?<time_offset>\d{4})) \[(?<placeholder_name>[^]]*)\] (?<message>.*)'
