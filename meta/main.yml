@@ -9,7 +9,7 @@ dependencies:
     fluentd_config_name: mongod
     fluentd_sources:
       - path: "{{ mongodb_log_path }}"
-        format: '^(?<date_time>(?<date>[^T]*)T(?<time>[^\+]*)\+(?<time_offset>\d{4})) \[(?<placeholder_name>[^]]*)\] (?<message>.*)'
+        format: '^(?<date_time>(?<date>[^T]*)T(?<time>[^\+]*)\+(?<time_offset>\d{4})) \[(?<connection_thread>[^]]*)\] (?<message>.*)'
         tag: mongodb.service
 galaxy_info:
   author: "Chris Olstrom"
