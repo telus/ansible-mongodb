@@ -3,3 +3,4 @@ localhost
 
 [local:vars]
 system_role=travis
+project=travis
