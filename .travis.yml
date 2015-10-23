@@ -29,9 +29,8 @@ script:
   # check idempotence
   - "ansible-playbook -i tests/inventory tests/$PLAYBOOK --connection=local --sudo"
   
-  # start mongodb  
-  - sudo service mongod start
-
-  # check that mongodb is running
-  - "curl localhost:27017"
-  
+  # check mongodb starts
+  - > 
+    sudo service mongod start | grep -q 'mongod start/running'
+    && (echo 'MongoDB is installed' && exit 0)
+    || (echo 'MongoDB is not installed' && exit 1)
