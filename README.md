@@ -14,6 +14,7 @@ Description
 Tunables
 --------
 * `mongodb_user` (string) - User to run MongoDB as?
+* `mongodb_group` (string) - Group to run MongoDB as?
 * `mongodb_runtime_root` (string) - Directory for runtime data
 * `mongodb_pidfile_path` (string) - Path for pidfile
 * `mongodb_log_root` (string) - Directory for logs
