@@ -4,3 +4,5 @@ localhost
 [local:vars]
 system_role=travis
 project=travis
+environment_tier=travis
+domain=travis
