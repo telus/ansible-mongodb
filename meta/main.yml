@@ -3,6 +3,12 @@ dependencies:
   - role: telusdigital.apt-repository
     repository_key: "0x9ecbec467f0ceb10"
     repository_url: "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
+  - role: telusdigital.fluentd
+    fluentd_config_name: mongod
+    fluentd_sources:
+      - path: '/data/log/mongod/mongod.log'
+        format: '^(?<date_time>(?<date>[^T]*)T(?<time>[^\+]*)\+(?<time_offset>\d{4})) \[(?<connection_thread>[^]]*)\] (?<message>.*)'
+        tag: mongodb.service
   - role: telusdigital.logrotate
     logrotate_name: mongod
 galaxy_info:
