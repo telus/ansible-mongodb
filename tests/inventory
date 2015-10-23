@@ -1,1 +1,5 @@
+[local]
 localhost
+
+[local:vars]
+system_role=travis
