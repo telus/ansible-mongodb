@@ -1,7 +1,20 @@
 ---
-- name: Reload Service | mongodb
+- name: service | mongodb | started
+  service:
+    name: mongod
+    state: started
+
+- name: service | mongodb | stopped
+  service:
+    name: mongod
+    state: stopped
+
+- name: service | mongodb | restarted
+  service:
+    name: mongod
+    state: restarted
+
+- name: service | mongodb | reloaded
   service:
     state: reloaded
     name: mongod
-  tags:
-    - disruptive

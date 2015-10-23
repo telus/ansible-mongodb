@@ -29,7 +29,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *pidfilepath ?\='
     line: "pidfilepath = {{ mongodb_pidfile_path }}"
-  notify: Reload Service | mongodb
+  notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration
@@ -44,7 +44,7 @@
     regexp: '^#* *auth ?\='
     line: 'auth = true'
   when: mongodb_auth_enabled
-  notify: Reload Service | mongodb
+  notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration
@@ -56,7 +56,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *bind_ip'
   when: mongodb_accepts_external_connections
-  notify: Reload Service | mongodb
+  notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration
