@@ -1,5 +1,6 @@
 ---
 mongodb_user: mongodb
+mongodb_group: mongodb
 
 mongodb_runtime_root: "{{ runtime_root | default('/var/run') }}/mongod"
 mongodb_pidfile_path: "{{ mongodb_runtime_root }}/mongod.pid"
