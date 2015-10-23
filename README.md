@@ -2,6 +2,7 @@
 
 [MongoDB](https://www.mongodb.org/) - document-oriented database
 
+[![Build Status](https://travis-ci.org/telusdigital/ansible-mongodb.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-mongodb)
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 
