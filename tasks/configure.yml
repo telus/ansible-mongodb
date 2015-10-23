@@ -4,7 +4,7 @@
     state: directory
     path: "{{ mongodb_runtime_root }}"
     owner: "{{ mongodb_user }}"
-    group: wcadmin
+    group: "{{ mongodb_group }}"
     mode: 0775
   tags:
     - directory-structure
@@ -16,7 +16,7 @@
     state: directory
     path: /var/lib/mongodb
     owner: "{{ mongodb_user }}"
-    group: wcdevelop
+    group: "{{ mongodb_group }}"
     mode: 0755
   tags:
     - permissions
