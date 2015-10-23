@@ -28,7 +28,10 @@ script:
 
   # check idempotence
   - "ansible-playbook -i tests/inventory tests/$PLAYBOOK --connection=local --sudo"
-    
+  
+  # start mongodb  
+  - sudo service mongod start
+
   # check that mongodb is running
   - "curl localhost:27017"
   
