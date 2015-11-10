@@ -4,7 +4,7 @@
     state: directory
     path: "{{ mongodb_log_root }}"
     owner: "{{ mongodb_user }}"
-    group: wcdevelop
+    group: "{{ mongodb_group }}"
     mode: 0775
   tags:
     - directory-structure
@@ -16,7 +16,7 @@
     state: touch
     path: "{{ mongodb_log_path }}"
     owner: "{{ mongodb_user }}"
-    group: wcdevelop
+    group: "{{ mongodb_group }}"
     mode: 0664
   tags:
     - permissions
@@ -29,7 +29,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *logpath ?\='
     line: "logpath = {{ mongodb_log_path }}"
-  notify: Reload Service | mongodb
+  notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration
@@ -42,7 +42,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *logappend ?\='
     line: 'logappend = true'
-  notify: Reload Service | mongodb
+  notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration

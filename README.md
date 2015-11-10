@@ -2,6 +2,7 @@
 
 [MongoDB](https://www.mongodb.org/) - document-oriented database
 
+[![Build Status](https://travis-ci.org/telusdigital/ansible-mongodb.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-mongodb)
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 
@@ -13,6 +14,7 @@ Description
 Tunables
 --------
 * `mongodb_user` (string) - User to run MongoDB as?
+* `mongodb_group` (string) - Group to run MongoDB as?
 * `mongodb_runtime_root` (string) - Directory for runtime data
 * `mongodb_pidfile_path` (string) - Path for pidfile
 * `mongodb_log_root` (string) - Directory for logs
