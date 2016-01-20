@@ -23,7 +23,7 @@
     - logging
     - mongo
 
-- name: Configure | MongoDB | logpath 
+- name: Configure | MongoDB | logpath
   lineinfile:
     state: present
     dest: /etc/mongod.conf
