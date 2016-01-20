@@ -23,13 +23,13 @@
     - logging
     - mongo
 
-- name: Configure | MongoDB | logpath 
+- name: Configure | MongoDB | logpath
   lineinfile:
     state: present
     dest: /etc/mongod.conf
     regexp: '^#* *logpath ?\='
     line: "logpath = {{ mongodb_log_path }}"
-  notify: service | mongodb | reloaded
+  notify: service | mongodb | restarted
   tags:
     - configuration
     - precise-configuration
@@ -42,7 +42,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *logappend ?\='
     line: 'logappend = true'
-  notify: service | mongodb | reloaded
+  notify: service | mongodb | restarted
   tags:
     - configuration
     - precise-configuration
