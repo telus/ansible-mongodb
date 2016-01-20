@@ -23,7 +23,7 @@
     - logging
     - mongo
 
-- name: "Directory Exists | /data/db
+- name: "Directory Exists | /data/db"
   file:
     state: directory
     path: /data/db
