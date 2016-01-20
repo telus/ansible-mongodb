@@ -1,0 +1,14 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    # name of role to test
+    - role: ansible-mongodb
+      system_role: travis
+      project: travis
+      environment_tier: travis
+      domain: travis
+      mongodb_server: yes
+      mongodb_client: yes
