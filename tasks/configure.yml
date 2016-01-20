@@ -23,6 +23,18 @@
     - logging
     - mongo
 
+- name: "Directory Exists | /data/db
+  file:
+    state: directory
+    path: /data/db
+    owner: "{{ mongodb_user }}"
+    group: "{{ mongodb_group }}"
+    mode: 0775
+  tags:
+    - directory-structure
+    - runtime-data
+    - mongodb
+
 - name: Configure | MongoDB | pidfilepath
   lineinfile:
     state: present
