@@ -29,7 +29,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *logpath ?\='
     line: "logpath = {{ mongodb_log_path }}"
-  notify: service | mongodb | restarted
+  notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration
@@ -42,7 +42,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *logappend ?\='
     line: 'logappend = true'
-  notify: service | mongodb | restarted
+  notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration
