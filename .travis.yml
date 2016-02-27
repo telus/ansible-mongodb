@@ -1,6 +1,4 @@
 ---
-sudo: required
-# docker is required to run tests
 services: docker
 
 install:
@@ -8,10 +6,11 @@ install:
 
 script:
   # run kitchen tests (destroy, create, converge, setup, verify and destroy)
-  - kitchen test
+  - bundle exec kitchen test
 
 notifications:
   slack:
-    secure: K39+L4lJ5BGJ36tKs5Cw1w1K1Jcs3QlTESuZO97BzI47A0A29fbuZ3Sxh+EA1h8FNsZT38NFuo4nq/mEwmJBBSHxVoaYcHmpJFEEBnHfLrfBOuhT2wZkLDzKW/13lY+3DhKCffTyOuy7jwInPdu85ziBZGehlb2xE+lD9/m+K1d7zcRsmcGX7O9c6AurU0Mq0nEjWKhOz1Sl09ZuAV0uKnYMvk5Ft6hqZCn09oC7qni+dWD5RwZ5hznHAtVnThTqpCoo4pEbvr0E3oW7sugg+5winUJvgNgPesLy59CuHghIPLEfHg47Bv0oRqE8GbeyNCNTyLHXZUY2oMW/DP03dKiIjpv/8PcR6eKDJubyXLUoRXdXAKZd7gRKX4lo+V3q8NLPrU6+f7eHW2SvgjPF7qxaQkiF4zSdAISv0DNQH71P5YL9grRAE/UelI2w1J6sMiIAvoD+/QWZmgy/Nu75YbUkGRXRTHIkVMbXe8l/PH2jR1HFoTIB4c6bOaN+4FGJP3eedaxMJ2pX59EGgwB7Zf/5Fw6EcVmIsR5l/J+mhfzbabAhKT7UOf+6u5Qvc981hIHpEpNwgRkBA4yMo4+8ik4ZGPpMOomcAYhEAiLDBtOshOJZ/nx+uF8VUFNwbSsSJ0YSYM7R2DiLWmj69DBvff4Dff1msI2B/cWQr8leYoY=
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
-
+    on_success: change
+    on_failure: always
+    rooms:
+      - secure: MwE/AEu48AT3Wm15rfQmoZCDW1ZP/72uMqbyO86BBSbc650iIeGF6oU1nm7NNo8YWfadRoSRKxmLf64hpS5OAEUL4aoYt2mElDO+p5fdYzNwx7xaI+Lr8+YVOBfrPY19I101L0/p6NgoQZko4uFKtT3Jrzkm8FJQHyQtJdclHhMKOfH+MYR7fhJ+n8BFBnoiT6PT1M3zfleo6LfDvLxj3S9cgAYxA2q37OiMOPF+0NrAIU8/TLg1RomH225S5AZp04zT8B2+xa/LY5w9gVbEReH9Lk/CobiQ5Vj+PFbSuKaxiCV/s57jypZvKIVxKIpzYUWliUMLo6Ym12Z0yvqVZVMp0ovxS50mz9nYneowcX7c0UcY1eLBvXgmVnpvvBW4RgP6nnVViQ7WtYlV4aKdZpsi/4zVNH71R/ZcLndwZ6KUqk8wMn8eiPC++WhxdJ+zYimZLiTIP5dwY5dCl7F1F/TNSEWSFzxvtCHVl6E+9W7XmR7sxLwQRX2nrxqlquabhsM58HkNLZMfIoG9/0WQ815FuhsEQNAEIag0ockpZX7IdWOEt0sTyClpdX7be+xlXzgNgd6YFdMwYgzel44YvABOwt4TeVzCoPEVdw58GQsO+xe19/kEHIrPIHUULAyxJBZLCB4VxLyKmPvXgylYvYR61uNXRWClu9Wc/h7htKE=
