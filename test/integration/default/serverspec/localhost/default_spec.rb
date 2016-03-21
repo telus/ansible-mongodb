@@ -6,11 +6,11 @@ describe 'ansible-mongodb::default' do
   end
 
   describe package('mongodb-org-shell') do
-      it { should be_installed.by('apt') }
-    end
+    it { should be_installed.by('apt') }
+  end
 
   describe service('mongod') do
-      it { should be_enabled }
-    end
+    it { should be_enabled }
+  end
 
 end
