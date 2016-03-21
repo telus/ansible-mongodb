@@ -12,3 +12,4 @@ mongodb_server: no
 mongodb_accepts_external_connections: yes
 mongodb_auth_enabled: no
 mongodb_set_permissions: yes
+mongodb_server_vesion: latest

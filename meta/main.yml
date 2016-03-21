@@ -6,6 +6,7 @@ dependencies:
   - role: telusdigital.logrotate
     logrotate_name: mongod
 galaxy_info:
+  author: "Kinnan Kwok"
   company: "TELUS digital"
   description: "MongoDB is a document-oriented database."
   license: MIT
