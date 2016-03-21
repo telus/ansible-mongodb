@@ -1,0 +1,16 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    # name of role to test
+    - role: ansible-mongodb
+      mongodb_client: yes
+      mongodb_server: yes
+      mongodb_set_permissions: no
+
+  vars:
+    domain: test.com
+    project: test-project
+    environment_tier: development

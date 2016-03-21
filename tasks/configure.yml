@@ -6,6 +6,7 @@
     owner: "{{ mongodb_user }}"
     group: wcadmin
     mode: 0775
+  when: mongodb_set_permissions
   tags:
     - directory-structure
     - runtime-data
@@ -18,6 +19,7 @@
     owner: "{{ mongodb_user }}"
     group: wcdevelop
     mode: 0755
+  when: mongodb_set_permissions
   tags:
     - permissions
     - logging

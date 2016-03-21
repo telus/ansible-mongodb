@@ -5,13 +5,7 @@ dependencies:
     repository_url: "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
   - role: telusdigital.logrotate
     logrotate_name: mongod
-  - role: telusdigital.fluentd
-    fluentd_sources:
-      - path: "{{ mongodb_log_path }}"
-        format: '^(?<date_time>(?<date>[^T]*)T(?<time>[^\+]*)\+(?<time_offset>\d{4})) \[(?<placeholder_name>[^]]*)\] (?<message>.*)'
-        tag: mongodb.service
 galaxy_info:
-  author: "Chris Olstrom"
   company: "TELUS digital"
   description: "MongoDB is a document-oriented database."
   license: MIT

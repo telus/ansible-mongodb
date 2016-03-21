@@ -1,0 +1,696 @@
+I, [2016-03-21T11:30:30.074483 #24565]  INFO -- default-ubuntu-1404: -----> Cleaning up any prior instances of <default-ubuntu-1404>
+I, [2016-03-21T11:30:30.076374 #24565]  INFO -- default-ubuntu-1404: -----> Destroying <default-ubuntu-1404>...
+I, [2016-03-21T11:30:30.177790 #24565]  INFO -- default-ubuntu-1404: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+I, [2016-03-21T11:30:30.178489 #24565]  INFO -- default-ubuntu-1404: root                21963               2396                0                   11:13               ?                   00:00:00            /sbin/init
+I, [2016-03-21T11:30:30.178556 #24565]  INFO -- default-ubuntu-1404: root                22026               21963               0                   11:13               ?                   00:00:00            cron
+I, [2016-03-21T11:30:30.178619 #24565]  INFO -- default-ubuntu-1404: root                22037               21963               0                   11:13               ?                   00:00:00            /usr/sbin/sshd -D
+I, [2016-03-21T11:30:30.178670 #24565]  INFO -- default-ubuntu-1404: syslog              22091               21963               0                   11:13               ?                   00:00:00            rsyslogd
+I, [2016-03-21T11:30:41.188483 #24565]  INFO -- default-ubuntu-1404: 41922cde7c1a9a70af73b0bb8fff31741f0ff7df2c53d502ce91b6156319f367
+I, [2016-03-21T11:30:42.265810 #24565]  INFO -- default-ubuntu-1404: 41922cde7c1a9a70af73b0bb8fff31741f0ff7df2c53d502ce91b6156319f367
+I, [2016-03-21T11:30:42.282946 #24565]  INFO -- default-ubuntu-1404: Finished destroying <default-ubuntu-1404> (0m12.20s).
+I, [2016-03-21T11:30:42.283633 #24565]  INFO -- default-ubuntu-1404: -----> Testing <default-ubuntu-1404>
+I, [2016-03-21T11:30:42.283961 #24565]  INFO -- default-ubuntu-1404: -----> Creating <default-ubuntu-1404>...
+I, [2016-03-21T11:30:42.352937 #24565]  INFO -- default-ubuntu-1404: Sending build context to Docker daemon 116.2 kB
+I, [2016-03-21T11:30:42.433490 #24565]  INFO -- default-ubuntu-1404: Step 1 : FROM ubuntu-upstart:14.04
+I, [2016-03-21T11:30:42.434504 #24565]  INFO -- default-ubuntu-1404:  ---> b28219773b9b
+I, [2016-03-21T11:30:42.434696 #24565]  INFO -- default-ubuntu-1404: Step 2 : ENV DEBIAN_FRONTEND noninteractive
+I, [2016-03-21T11:30:42.435599 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.435717 #24565]  INFO -- default-ubuntu-1404:  ---> 5951cb5e6eb4
+I, [2016-03-21T11:30:42.436063 #24565]  INFO -- default-ubuntu-1404: Step 3 : RUN apt-get update
+I, [2016-03-21T11:30:42.436657 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.436744 #24565]  INFO -- default-ubuntu-1404:  ---> f2650670d7cc
+I, [2016-03-21T11:30:42.436936 #24565]  INFO -- default-ubuntu-1404: Step 4 : RUN apt-get install -y sudo openssh-server curl lsb-release
+I, [2016-03-21T11:30:42.437783 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.437881 #24565]  INFO -- default-ubuntu-1404:  ---> 0b3966f610ea
+I, [2016-03-21T11:30:42.438078 #24565]  INFO -- default-ubuntu-1404: Step 5 : RUN if ! getent passwd kitchen; then useradd -d /home/kitchen -m -s /bin/bash kitchen; fi
+I, [2016-03-21T11:30:42.439129 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.439232 #24565]  INFO -- default-ubuntu-1404:  ---> ce9134b6b003
+I, [2016-03-21T11:30:42.439312 #24565]  INFO -- default-ubuntu-1404: Step 6 : RUN echo kitchen:kitchen | chpasswd
+I, [2016-03-21T11:30:42.440780 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.440877 #24565]  INFO -- default-ubuntu-1404:  ---> baee8ce2cb1b
+I, [2016-03-21T11:30:42.441225 #24565]  INFO -- default-ubuntu-1404: Step 7 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+I, [2016-03-21T11:30:42.442729 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.442824 #24565]  INFO -- default-ubuntu-1404:  ---> 81f1cdd589b4
+I, [2016-03-21T11:30:42.442900 #24565]  INFO -- default-ubuntu-1404: Step 8 : RUN mkdir -p /etc/sudoers.d
+I, [2016-03-21T11:30:42.443812 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.443933 #24565]  INFO -- default-ubuntu-1404:  ---> 117ea1bf5968
+I, [2016-03-21T11:30:42.444477 #24565]  INFO -- default-ubuntu-1404: Step 9 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/kitchen
+I, [2016-03-21T11:30:42.445541 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.445981 #24565]  INFO -- default-ubuntu-1404:  ---> 6d60241da9c7
+I, [2016-03-21T11:30:42.446048 #24565]  INFO -- default-ubuntu-1404: Step 10 : RUN chmod 0440 /etc/sudoers.d/kitchen
+I, [2016-03-21T11:30:42.446596 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.446663 #24565]  INFO -- default-ubuntu-1404:  ---> 341f09b59833
+I, [2016-03-21T11:30:42.446827 #24565]  INFO -- default-ubuntu-1404: Step 11 : RUN [ ! -d /home/kitchen/.ssh ] && mkdir /home/kitchen/.ssh
+I, [2016-03-21T11:30:42.447487 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.447546 #24565]  INFO -- default-ubuntu-1404:  ---> 3ad0d0e2b5e8
+I, [2016-03-21T11:30:42.447591 #24565]  INFO -- default-ubuntu-1404: Step 12 : RUN chown -R kitchen /home/kitchen/.ssh
+I, [2016-03-21T11:30:42.448474 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.448541 #24565]  INFO -- default-ubuntu-1404:  ---> dfeff4032de8
+I, [2016-03-21T11:30:42.448597 #24565]  INFO -- default-ubuntu-1404: Step 13 : RUN chmod 0700 /home/kitchen/.ssh
+I, [2016-03-21T11:30:42.449346 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.449423 #24565]  INFO -- default-ubuntu-1404:  ---> 2c669b1062c6
+I, [2016-03-21T11:30:42.449598 #24565]  INFO -- default-ubuntu-1404: Step 14 : RUN echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/LERS5fcLLhWUHJ4wbDenSmeanqLToWRiQmiV0pgTY9qhiD/hwTlt/fpZ/Qd/xsrFNhdDHbfCC4hbp6M7Sds4Fyb/8BtivjJn5ASw01rLPArK3BvXOePUjg278iq4l5fs0/iNPUrA+QUhHpS2YSumHjEra9oXDaX3jql5/eXZ3Y2KZPDBQs3q/MAaHnzB//H+QCgs/iE0TIQRfDKjlNsmIcjgodA0OcNAV2qog7I9eU1jUFkFc2XTNJrZ5bsYq0bWhxPN52mfbJ9+X4R/erxgawYV67a+kDSSKUKVqam14reLpgqP8wuQ9xBaY5s6kgXVSB57CNTQOEwmvgApZdOP kitchen_docker_key' >> /home/kitchen/.ssh/authorized_keys
+I, [2016-03-21T11:30:42.450509 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.450576 #24565]  INFO -- default-ubuntu-1404:  ---> a7a666274fad
+I, [2016-03-21T11:30:42.450629 #24565]  INFO -- default-ubuntu-1404: Step 15 : RUN chown kitchen /home/kitchen/.ssh/authorized_keys
+I, [2016-03-21T11:30:42.451476 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.451545 #24565]  INFO -- default-ubuntu-1404:  ---> cefcfed54d7f
+I, [2016-03-21T11:30:42.451591 #24565]  INFO -- default-ubuntu-1404: Step 16 : RUN chmod 0600 /home/kitchen/.ssh/authorized_keys
+I, [2016-03-21T11:30:42.452290 #24565]  INFO -- default-ubuntu-1404:  ---> Using cache
+I, [2016-03-21T11:30:42.452394 #24565]  INFO -- default-ubuntu-1404:  ---> 95779b7270ff
+I, [2016-03-21T11:30:42.452514 #24565]  INFO -- default-ubuntu-1404: Successfully built 95779b7270ff
+I, [2016-03-21T11:30:42.647896 #24565]  INFO -- default-ubuntu-1404: 52b1bd71f4060c27ce74eb9986bb193463cdb78b30cc190fa5823eddd46ada18
+I, [2016-03-21T11:30:43.144969 #24565]  INFO -- default-ubuntu-1404: 0.0.0.0:32777
+I, [2016-03-21T11:30:43.367509 #24565]  INFO -- default-ubuntu-1404: [SSH] Established
+I, [2016-03-21T11:30:43.369500 #24565]  INFO -- default-ubuntu-1404: Finished creating <default-ubuntu-1404> (0m1.08s).
+I, [2016-03-21T11:30:43.369685 #24565]  INFO -- default-ubuntu-1404: -----> Converging <default-ubuntu-1404>...
+W, [2016-03-21T11:30:43.370541 #24565]  WARN -- default-ubuntu-1404: Running legacy converge for 'Docker' Driver
+I, [2016-03-21T11:30:43.370837 #24565]  INFO -- default-ubuntu-1404: Preparing files for transfer
+I, [2016-03-21T11:30:43.370956 #24565]  INFO -- default-ubuntu-1404: Preparing playbook
+I, [2016-03-21T11:30:43.371499 #24565]  INFO -- default-ubuntu-1404: Preparing inventory file
+I, [2016-03-21T11:30:43.371671 #24565]  INFO -- default-ubuntu-1404: Preparing modules
+I, [2016-03-21T11:30:43.371910 #24565]  INFO -- default-ubuntu-1404: nothing to do for modules
+I, [2016-03-21T11:30:43.372006 #24565]  INFO -- default-ubuntu-1404: Preparing roles
+I, [2016-03-21T11:30:43.377046 #24565]  INFO -- default-ubuntu-1404: Preparing ansible.cfg file
+I, [2016-03-21T11:30:43.377225 #24565]  INFO -- default-ubuntu-1404: Empty ansible.cfg generated
+I, [2016-03-21T11:30:43.377413 #24565]  INFO -- default-ubuntu-1404: Preparing group_vars
+I, [2016-03-21T11:30:43.377757 #24565]  INFO -- default-ubuntu-1404: nothing to do for group_vars
+I, [2016-03-21T11:30:43.377892 #24565]  INFO -- default-ubuntu-1404: Preparing additional_copy_path
+I, [2016-03-21T11:30:43.378133 #24565]  INFO -- default-ubuntu-1404: Preparing host_vars
+I, [2016-03-21T11:30:43.378362 #24565]  INFO -- default-ubuntu-1404: nothing to do for host_vars
+I, [2016-03-21T11:30:43.378538 #24565]  INFO -- default-ubuntu-1404: Preparing hosts file
+I, [2016-03-21T11:30:43.378842 #24565]  INFO -- default-ubuntu-1404: Preparing spec
+I, [2016-03-21T11:30:43.379018 #24565]  INFO -- default-ubuntu-1404: nothing to do for spec
+I, [2016-03-21T11:30:43.379110 #24565]  INFO -- default-ubuntu-1404: Preparing library plugins
+I, [2016-03-21T11:30:43.379343 #24565]  INFO -- default-ubuntu-1404: nothing to do for library plugins
+I, [2016-03-21T11:30:43.379435 #24565]  INFO -- default-ubuntu-1404: Preparing callback plugins
+I, [2016-03-21T11:30:43.379688 #24565]  INFO -- default-ubuntu-1404: nothing to do for callback plugins
+I, [2016-03-21T11:30:43.379782 #24565]  INFO -- default-ubuntu-1404: Preparing filter_plugins
+I, [2016-03-21T11:30:43.380181 #24565]  INFO -- default-ubuntu-1404: nothing to do for filter_plugins
+I, [2016-03-21T11:30:43.380308 #24565]  INFO -- default-ubuntu-1404: Preparing lookup_plugins
+I, [2016-03-21T11:30:43.380546 #24565]  INFO -- default-ubuntu-1404: nothing to do for lookup_plugins
+I, [2016-03-21T11:30:43.380689 #24565]  INFO -- default-ubuntu-1404: Finished Preparing files for transfer
+I, [2016-03-21T11:30:43.382098 #24565]  INFO -- default-ubuntu-1404: Installing ansible, will try to determine platform os
+I, [2016-03-21T11:30:45.929502 #24565]  INFO -- default-ubuntu-1404: 0% [Working]            Ign http://archive.ubuntu.com trusty InRelease
+I, [2016-03-21T11:30:46.090350 #24565]  INFO -- default-ubuntu-1404:             12% [Working]             Get:1 http://archive.ubuntu.com trusty-updates InRelease [65.9 kB]
+I, [2016-03-21T11:30:47.939370 #24565]  INFO -- default-ubuntu-1404:              11% [1 InRelease 6961 B/65.9 kB 11%]                                    92% [1 InRelease 60.5 kB/65.9 kB 92%]                                     100% [Working]              Get:2 http://archive.ubuntu.com trusty-security InRelease [65.9 kB]
+I, [2016-03-21T11:30:48.098188 #24565]  INFO -- default-ubuntu-1404: 100% [Working]              100% [1 InRelease gpgv 65.9 kB] [Waiting for headers]                                                     Hit http://archive.ubuntu.com trusty Release.gpg
+I, [2016-03-21T11:30:48.255602 #24565]  INFO -- default-ubuntu-1404:                                                      100% [1 InRelease gpgv 65.9 kB]                               Hit http://archive.ubuntu.com trusty Release
+I, [2016-03-21T11:30:48.780642 #24565]  INFO -- default-ubuntu-1404: 100% [1 InRelease gpgv 65.9 kB]                               100% [Working]              100% [2 InRelease gpgv 65.9 kB]                               Get:3 http://archive.ubuntu.com trusty-updates/main Sources [331 kB]
+I, [2016-03-21T11:30:53.982658 #24565]  INFO -- default-ubuntu-1404:                                29% [2 InRelease gpgv 65.9 kB] [3 Sources 2582 B/331 kB 1%]                                                           40% [3 Sources 51.8 kB/331 kB 16%]                                  40% [Release gpgv 58.5 kB] [3 Sources 51.8 kB/331 kB 16%]                                                         42% [3 Sources 63.4 kB/331 kB 19%]                                  50% [3 Sources 101 kB/331 kB 31%]60% [3 Sources 144 kB/331 kB 44%]71% [3 Sources 195 kB/331 kB 59%]80% [3 Sources 240 kB/331 kB 72%]                                 90% [3 Sources 283 kB/331 kB 86%]                                  66.9 kB/s 0s100% [Working]                                                     66.9 kB/s 0s100% [3 Sources 331 kB] [Waiting for headers]                      66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s                                                                               Get:4 http://archive.ubuntu.com trusty-updates/restricted Sources [5217 B]
+I, [2016-03-21T11:30:54.085825 #24565]  INFO -- default-ubuntu-1404: 99% [4 Sources 2572 B/5217 B 49%]                                  66.9 kB/s 0s100% [Working]                                                     66.9 kB/s 0s100% [4 Sources 5217 B] [Waiting for headers]                      66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s                                                                               Get:5 http://archive.ubuntu.com trusty-updates/universe Sources [190 kB]
+I, [2016-03-21T11:30:54.628892 #24565]  INFO -- default-ubuntu-1404: 73% [5 Sources 11.3 kB/190 kB 6%]                                  66.9 kB/s 2s100% [Working]                                                     66.9 kB/s 0s100% [5 Sources 190 kB] [Waiting for headers]                      66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s                                                                               Get:6 http://archive.ubuntu.com trusty-updates/main amd64 Packages [918 kB]
+I, [2016-03-21T11:30:56.074214 #24565]  INFO -- default-ubuntu-1404: 42% [6 Packages 1121 B/918 kB 0%]                                 66.9 kB/s 13s64% [6 Packages 353 kB/918 kB 38%]                                 66.9 kB/s 8s85% [6 Packages 679 kB/918 kB 74%]                                 66.9 kB/s 3s100% [Working]                                                     66.9 kB/s 0s100% [6 Packages 918 kB] [Waiting for headers]                     66.9 kB/s 0s                                                                               Get:7 http://archive.ubuntu.com trusty-updates/restricted amd64 Packages [23.5 kB]
+I, [2016-03-21T11:30:56.174083 #24565]  INFO -- default-ubuntu-1404: 100% [6 Packages 918 kB] [7 Packages 19.9 kB/23.5 kB 85%]          66.9 kB/s 0s100% [6 Packages 918 kB]                                           66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s100% [7 Packages 23.5 kB] [Waiting for headers]                    66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s                                                                               Get:8 http://archive.ubuntu.com trusty-updates/universe amd64 Packages [440 kB]
+I, [2016-03-21T11:30:57.035099 #24565]  INFO -- default-ubuntu-1404: 79% [8 Packages 12.7 kB/440 kB 3%]                                 66.9 kB/s 6s93% [8 Packages 307 kB/440 kB 70%]                                 66.9 kB/s 1s100% [Working]                                                     66.9 kB/s 0s100% [8 Packages 440 kB] [Waiting for headers]                     66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s                                                                               Get:9 http://archive.ubuntu.com trusty-security/main Sources [138 kB]
+I, [2016-03-21T11:30:57.343704 #24565]  INFO -- default-ubuntu-1404: 94% [9 Sources 2569 B/138 kB 2%]                                   66.9 kB/s 2s100% [Working]                                                     66.9 kB/s 0s100% [9 Sources 137 kB] [Waiting for headers]                      66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s                                                                               Get:10 http://archive.ubuntu.com trusty-security/restricted Sources [3920 B]
+I, [2016-03-21T11:30:57.439872 #24565]  INFO -- default-ubuntu-1404: 100% [10 Sources 3920 B/3920 B 100%]                               66.9 kB/s 0s100% [Working]                                                     66.9 kB/s 0s100% [10 Sources 3920 B] [Waiting for headers]                     66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s                                                                               Get:11 http://archive.ubuntu.com trusty-security/universe Sources [39.1 kB]
+I, [2016-03-21T11:30:57.546502 #24565]  INFO -- default-ubuntu-1404: 99% [11 Sources 12.3 kB/39.1 kB 31%]                               66.9 kB/s 0s100% [Working]                                                     66.9 kB/s 0s100% [11 Sources 39.1 kB] [Waiting for headers]                    66.9 kB/s 0s100% [Waiting for headers]                                         66.9 kB/s 0s                                                                               Get:12 http://archive.ubuntu.com trusty-security/main amd64 Packages [555 kB]
+I, [2016-03-21T11:30:58.625370 #24565]  INFO -- default-ubuntu-1404: 80% [12 Packages 8192 B/555 kB 1%]                                 66.9 kB/s 8s91% [12 Packages 297 kB/555 kB 53%]                                 336 kB/s 0s100% [Working]                                                      336 kB/s 0s100% [12 Packages 550 kB] [Waiting for headers]                     336 kB/s 0s                                                                               Get:13 http://archive.ubuntu.com trusty-security/restricted amd64 Packages [20.2 kB]
+I, [2016-03-21T11:30:58.730039 #24565]  INFO -- default-ubuntu-1404: 99% [12 Packages 555 kB] [13 Packages 5467 B/20.2 kB 27%]           336 kB/s 0s100% [12 Packages 555 kB]                                           336 kB/s 0s100% [Waiting for headers]                                          336 kB/s 0s100% [13 Packages 20.2 kB] [Waiting for headers]                    336 kB/s 0s100% [Waiting for headers]                                          336 kB/s 0s                                                                               Get:14 http://archive.ubuntu.com trusty-security/universe amd64 Packages [163 kB]
+I, [2016-03-21T11:30:59.056654 #24565]  INFO -- default-ubuntu-1404: 95% [14 Packages 5465 B/163 kB 3%]                                  336 kB/s 0s100% [Working]                                                      336 kB/s 0s100% [14 Packages 162 kB] [Waiting for headers]                     336 kB/s 0s100% [Waiting for headers]                                          336 kB/s 0s                                                                               Hit http://archive.ubuntu.com trusty/main Sources
+I, [2016-03-21T11:30:59.147481 #24565]  INFO -- default-ubuntu-1404: 100% [Working]                                                      336 kB/s 0s100% [Sources 0 B] [Waiting for headers]                            336 kB/s 0s                                                                               Hit http://archive.ubuntu.com trusty/restricted Sources
+I, [2016-03-21T11:30:59.264905 #24565]  INFO -- default-ubuntu-1404: 100% [Sources 1335 kB]                                              336 kB/s 0s100% [Waiting for headers]                                          336 kB/s 0s100% [Sources 0 B] [Waiting for headers]                            336 kB/s 0s100% [Waiting for headers]                                          336 kB/s 0s                                                                               Hit http://archive.ubuntu.com trusty/universe Sources
+I, [2016-03-21T11:30:59.358813 #24565]  INFO -- default-ubuntu-1404: 100% [Working]                                                      336 kB/s 0s100% [Sources 0 B] [Waiting for headers]                            336 kB/s 0s                                                                               Hit http://archive.ubuntu.com trusty/main amd64 Packages
+I, [2016-03-21T11:30:59.450572 #24565]  INFO -- default-ubuntu-1404: 100% [Sources 7926 kB]                                              336 kB/s 0s                                                                               Hit http://archive.ubuntu.com trusty/restricted amd64 Packages
+I, [2016-03-21T11:30:59.560881 #24565]  INFO -- default-ubuntu-1404: 100% [Sources 7926 kB]                                              336 kB/s 0s                                                                               Hit http://archive.ubuntu.com trusty/universe amd64 Packages
+I, [2016-03-21T11:31:01.289239 #24565]  INFO -- default-ubuntu-1404: 100% [Sources 7926 kB]                                              336 kB/s 0s100% [Sources 7926 kB]                                              336 kB/s 0s100% [Working]                                                      336 kB/s 0s100% [Packages 0 B]                                                 336 kB/s 0s100% [Working]                                                      336 kB/s 0s100% [Packages 0 B]                                                 336 kB/s 0s100% [Working]                                                      336 kB/s 0s100% [Packages 0 B]                                                 336 kB/s 0s100% [Packages 7589 kB]                                             336 kB/s 0s100% [Working]                                                      336 kB/s 0s                                                                               Fetched 2958 kB in 15s (188 kB/s)
+I, [2016-03-21T11:31:04.108483 #24565]  INFO -- default-ubuntu-1404: Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 41%Reading package lists... Done
+I, [2016-03-21T11:31:04.725038 #24565]  INFO -- default-ubuntu-1404: W: Size of file /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_trusty-updates_main_binary-amd64_Packages.gz is not what the server reported 917641 917686
+I, [2016-03-21T11:31:04.725214 #24565]  INFO -- default-ubuntu-1404: W: Size of file /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_trusty-updates_universe_binary-amd64_Packages.gz is not what the server reported 439919 439963
+I, [2016-03-21T11:31:07.460422 #24565]  INFO -- default-ubuntu-1404: Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 41%Reading package lists... Done
+I, [2016-03-21T11:31:08.216043 #24565]  INFO -- default-ubuntu-1404: Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... 77%Building dependency tree       
+I, [2016-03-21T11:31:08.216486 #24565]  INFO -- default-ubuntu-1404: Reading state information... 0%Reading state information... 1%Reading state information... Done
+I, [2016-03-21T11:31:08.324529 #24565]  INFO -- default-ubuntu-1404: The following extra packages will be installed:
+I, [2016-03-21T11:31:08.324622 #24565]  INFO -- default-ubuntu-1404:   git-man libcurl3-gnutls liberror-perl patch rsync
+I, [2016-03-21T11:31:08.325769 #24565]  INFO -- default-ubuntu-1404: Suggested packages:
+I, [2016-03-21T11:31:08.326063 #24565]  INFO -- default-ubuntu-1404:   gettext-base git-daemon-run git-daemon-sysvinit git-doc git-el git-email
+I, [2016-03-21T11:31:08.326128 #24565]  INFO -- default-ubuntu-1404:   git-gui gitk gitweb git-arch git-bzr git-cvs git-mediawiki git-svn ed
+I, [2016-03-21T11:31:08.326174 #24565]  INFO -- default-ubuntu-1404:   diffutils-doc
+I, [2016-03-21T11:31:08.328267 #24565]  INFO -- default-ubuntu-1404: The following NEW packages will be installed:
+I, [2016-03-21T11:31:08.328603 #24565]  INFO -- default-ubuntu-1404:   git git-man libcurl3-gnutls liberror-perl patch rsync
+I, [2016-03-21T11:31:08.330942 #24565]  INFO -- default-ubuntu-1404: The following packages will be upgraded:
+I, [2016-03-21T11:31:08.331061 #24565]  INFO -- default-ubuntu-1404:   apt-utils
+I, [2016-03-21T11:31:08.334893 #24565]  INFO -- default-ubuntu-1404: 1 upgraded, 6 newly installed, 0 to remove and 36 not upgraded.
+I, [2016-03-21T11:31:09.025384 #24565]  INFO -- default-ubuntu-1404: Need to get 4128 kB of archives.
+I, [2016-03-21T11:31:09.026065 #24565]  INFO -- default-ubuntu-1404: After this operation, 23.3 MB of additional disk space will be used.
+I, [2016-03-21T11:31:10.026106 #24565]  INFO -- default-ubuntu-1404: 0% [Working]            Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libcurl3-gnutls amd64 7.35.0-1ubuntu2.6 [165 kB]
+I, [2016-03-21T11:31:10.754076 #24565]  INFO -- default-ubuntu-1404:             0% [1 libcurl3-gnutls 8435 B/165 kB 5%]                                       2% [1 libcurl3-gnutls 101 kB/165 kB 61%]                                        4% [Working]            Get:2 http://archive.ubuntu.com/ubuntu/ trusty-updates/main apt-utils amd64 1.0.1ubuntu2.11 [172 kB]
+I, [2016-03-21T11:31:11.137053 #24565]  INFO -- default-ubuntu-1404:             4% [2 apt-utils 6987 B/172 kB 4%]                                 8% [Working]            Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/main rsync amd64 3.1.0-2ubuntu0.2 [284 kB]
+I, [2016-03-21T11:31:11.850660 #24565]  INFO -- default-ubuntu-1404:             9% [3 rsync 14.2 kB/284 kB 5%]                              15% [3 rsync 265 kB/284 kB 93%]                               15% [Working]             Get:4 http://archive.ubuntu.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
+I, [2016-03-21T11:31:12.024762 #24565]  INFO -- default-ubuntu-1404:              15% [4 liberror-perl 14.2 kB/21.1 kB 68%]                                         16% [Working]             Get:5 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git-man all 1:1.9.1-1ubuntu0.2 [699 kB]
+I, [2016-03-21T11:31:13.802067 #24565]  INFO -- default-ubuntu-1404:              16% [5 git-man 2643 B/699 kB 0%]                                21% [5 git-man 237 kB/699 kB 34%]26% [5 git-man 443 kB/699 kB 63%]32% [5 git-man 660 kB/699 kB 94%]                                 32% [Working]             Get:6 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git amd64 1:1.9.1-1ubuntu0.2 [2701 kB]
+I, [2016-03-21T11:31:19.546392 #24565]  INFO -- default-ubuntu-1404:              33% [6 git 9881 B/2701 kB 0%]38% [6 git 226 kB/2701 kB 8%]                             43% [6 git 452 kB/2701 kB 17%]49% [6 git 677 kB/2701 kB 25%]                              54% [6 git 903 kB/2701 kB 33%]                                      364 kB/s 5s60% [6 git 1129 kB/2701 kB 42%]                                     364 kB/s 4s65% [6 git 1335 kB/2701 kB 49%]                                     364 kB/s 3s70% [6 git 1558 kB/2701 kB 58%]                                     364 kB/s 3s76% [6 git 1792 kB/2701 kB 66%]                                     364 kB/s 2s82% [6 git 2044 kB/2701 kB 76%]                                     364 kB/s 2s89% [6 git 2340 kB/2701 kB 87%]                                     364 kB/s 1s97% [6 git 2670 kB/2701 kB 99%]                                     364 kB/s 0s98% [Working]                                                       364 kB/s 0s                                                                               Get:7 http://archive.ubuntu.com/ubuntu/ trusty-updates/main patch amd64 2.7.1-4ubuntu2.3 [86.4 kB]
+I, [2016-03-21T11:31:19.733792 #24565]  INFO -- default-ubuntu-1404: 98% [7 patch 20.0 kB/86.4 kB 23%]                                   364 kB/s 0s100% [Working]                                                      364 kB/s 0s                                                                               Fetched 4128 kB in 10s (409 kB/s)
+I, [2016-03-21T11:31:20.503041 #24565]  INFO -- default-ubuntu-1404: perl: warning: Setting locale failed.
+I, [2016-03-21T11:31:20.503186 #24565]  INFO -- default-ubuntu-1404: perl: warning: Please check that your locale settings:
+I, [2016-03-21T11:31:20.503268 #24565]  INFO -- default-ubuntu-1404: 	LANGUAGE = (unset),
+I, [2016-03-21T11:31:20.503343 #24565]  INFO -- default-ubuntu-1404: 	LC_ALL = (unset),
+I, [2016-03-21T11:31:20.503416 #24565]  INFO -- default-ubuntu-1404: 	LC_CTYPE = "en_CA.UTF-8",
+I, [2016-03-21T11:31:20.503505 #24565]  INFO -- default-ubuntu-1404: 	LANG = "en_US.UTF-8"
+I, [2016-03-21T11:31:20.503582 #24565]  INFO -- default-ubuntu-1404:     are supported and installed on your system.
+I, [2016-03-21T11:31:20.503726 #24565]  INFO -- default-ubuntu-1404: perl: warning: Falling back to the standard locale ("C").
+I, [2016-03-21T11:31:20.561682 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_CTYPE to default locale: No such file or directory
+I, [2016-03-21T11:31:20.562161 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_ALL to default locale: No such file or directory
+I, [2016-03-21T11:31:29.187462 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package libcurl3-gnutls:amd64.
+I, [2016-03-21T11:31:29.208308 #24565]  INFO -- default-ubuntu-1404: (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16043 files and directories currently installed.)
+I, [2016-03-21T11:31:29.208879 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../libcurl3-gnutls_7.35.0-1ubuntu2.6_amd64.deb ...
+I, [2016-03-21T11:31:29.220511 #24565]  INFO -- default-ubuntu-1404: Unpacking libcurl3-gnutls:amd64 (7.35.0-1ubuntu2.6) ...
+I, [2016-03-21T11:31:29.322726 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../apt-utils_1.0.1ubuntu2.11_amd64.deb ...
+I, [2016-03-21T11:31:29.335941 #24565]  INFO -- default-ubuntu-1404: Unpacking apt-utils (1.0.1ubuntu2.11) over (1.0.1ubuntu2.10) ...
+I, [2016-03-21T11:31:29.472098 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package rsync.
+I, [2016-03-21T11:31:29.472172 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../rsync_3.1.0-2ubuntu0.2_amd64.deb ...
+I, [2016-03-21T11:31:29.483134 #24565]  INFO -- default-ubuntu-1404: Unpacking rsync (3.1.0-2ubuntu0.2) ...
+I, [2016-03-21T11:31:29.603007 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package liberror-perl.
+I, [2016-03-21T11:31:29.605815 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
+I, [2016-03-21T11:31:29.610317 #24565]  INFO -- default-ubuntu-1404: Unpacking liberror-perl (0.17-1.1) ...
+I, [2016-03-21T11:31:29.664462 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package git-man.
+I, [2016-03-21T11:31:29.667193 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.2_all.deb ...
+I, [2016-03-21T11:31:29.679243 #24565]  INFO -- default-ubuntu-1404: Unpacking git-man (1:1.9.1-1ubuntu0.2) ...
+I, [2016-03-21T11:31:29.896681 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package git.
+I, [2016-03-21T11:31:29.896755 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.2_amd64.deb ...
+I, [2016-03-21T11:31:29.917040 #24565]  INFO -- default-ubuntu-1404: Unpacking git (1:1.9.1-1ubuntu0.2) ...
+I, [2016-03-21T11:31:30.447403 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package patch.
+I, [2016-03-21T11:31:30.450876 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../patch_2.7.1-4ubuntu2.3_amd64.deb ...
+I, [2016-03-21T11:31:30.462377 #24565]  INFO -- default-ubuntu-1404: Unpacking patch (2.7.1-4ubuntu2.3) ...
+I, [2016-03-21T11:31:30.532648 #24565]  INFO -- default-ubuntu-1404: Processing triggers for ureadahead (0.100.0-16) ...
+I, [2016-03-21T11:31:31.220652 #24565]  INFO -- default-ubuntu-1404: Setting up libcurl3-gnutls:amd64 (7.35.0-1ubuntu2.6) ...
+I, [2016-03-21T11:31:31.254658 #24565]  INFO -- default-ubuntu-1404: Setting up apt-utils (1.0.1ubuntu2.11) ...
+I, [2016-03-21T11:31:31.268687 #24565]  INFO -- default-ubuntu-1404: Setting up rsync (3.1.0-2ubuntu0.2) ...
+I, [2016-03-21T11:31:31.360415 #24565]  INFO -- default-ubuntu-1404:  Removing any system startup links for /etc/init.d/rsync ...
+I, [2016-03-21T11:31:31.371454 #24565]  INFO -- default-ubuntu-1404: update-rc.d: warning: default stop runlevel arguments (0 1 6) do not match rsync Default-Stop values (none)
+I, [2016-03-21T11:31:31.371864 #24565]  INFO -- default-ubuntu-1404:  Adding system startup for /etc/init.d/rsync ...
+I, [2016-03-21T11:31:31.371943 #24565]  INFO -- default-ubuntu-1404:    /etc/rc0.d/K20rsync -> ../init.d/rsync
+I, [2016-03-21T11:31:31.372342 #24565]  INFO -- default-ubuntu-1404:    /etc/rc1.d/K20rsync -> ../init.d/rsync
+I, [2016-03-21T11:31:31.372694 #24565]  INFO -- default-ubuntu-1404:    /etc/rc6.d/K20rsync -> ../init.d/rsync
+I, [2016-03-21T11:31:31.373264 #24565]  INFO -- default-ubuntu-1404:    /etc/rc2.d/S20rsync -> ../init.d/rsync
+I, [2016-03-21T11:31:31.373557 #24565]  INFO -- default-ubuntu-1404:    /etc/rc3.d/S20rsync -> ../init.d/rsync
+I, [2016-03-21T11:31:31.374105 #24565]  INFO -- default-ubuntu-1404:    /etc/rc4.d/S20rsync -> ../init.d/rsync
+I, [2016-03-21T11:31:31.374622 #24565]  INFO -- default-ubuntu-1404:    /etc/rc5.d/S20rsync -> ../init.d/rsync
+I, [2016-03-21T11:31:31.422231 #24565]  INFO -- default-ubuntu-1404: Setting up liberror-perl (0.17-1.1) ...
+I, [2016-03-21T11:31:31.456252 #24565]  INFO -- default-ubuntu-1404: Setting up git-man (1:1.9.1-1ubuntu0.2) ...
+I, [2016-03-21T11:31:31.471551 #24565]  INFO -- default-ubuntu-1404: Setting up git (1:1.9.1-1ubuntu0.2) ...
+I, [2016-03-21T11:31:31.503521 #24565]  INFO -- default-ubuntu-1404: Setting up patch (2.7.1-4ubuntu2.3) ...
+I, [2016-03-21T11:31:31.516571 #24565]  INFO -- default-ubuntu-1404: Processing triggers for libc-bin (2.19-0ubuntu6.6) ...
+I, [2016-03-21T11:31:31.566740 #24565]  INFO -- default-ubuntu-1404: Processing triggers for ureadahead (0.100.0-16) ...
+I, [2016-03-21T11:31:34.984176 #24565]  INFO -- default-ubuntu-1404: Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 40%Reading package lists... Done
+I, [2016-03-21T11:31:35.739725 #24565]  INFO -- default-ubuntu-1404: Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... 76%Building dependency tree       
+I, [2016-03-21T11:31:35.740142 #24565]  INFO -- default-ubuntu-1404: Reading state information... 0%Reading state information... 1%Reading state information... Done
+I, [2016-03-21T11:31:35.860497 #24565]  INFO -- default-ubuntu-1404: The following extra packages will be installed:
+I, [2016-03-21T11:31:35.860605 #24565]  INFO -- default-ubuntu-1404:   gir1.2-glib-2.0 iso-codes libdbus-glib-1-2 libgirepository-1.0-1
+I, [2016-03-21T11:31:35.860664 #24565]  INFO -- default-ubuntu-1404:   libglib2.0-0 libglib2.0-data libxml2 python-apt-common python3-apt
+I, [2016-03-21T11:31:35.860736 #24565]  INFO -- default-ubuntu-1404:   python3-dbus python3-gi python3-pycurl python3-software-properties sgml-base
+I, [2016-03-21T11:31:35.860771 #24565]  INFO -- default-ubuntu-1404:   shared-mime-info unattended-upgrades xml-core xz-utils
+I, [2016-03-21T11:31:35.861793 #24565]  INFO -- default-ubuntu-1404: Suggested packages:
+I, [2016-03-21T11:31:35.861971 #24565]  INFO -- default-ubuntu-1404:   isoquery python3-apt-dbg python-apt-doc python-dbus-doc python3-dbus-dbg
+I, [2016-03-21T11:31:35.862042 #24565]  INFO -- default-ubuntu-1404:   libcurl4-gnutls-dev python3-pycurl-dbg sgml-base-doc bsd-mailx
+I, [2016-03-21T11:31:35.862119 #24565]  INFO -- default-ubuntu-1404:   mail-transport-agent debhelper
+I, [2016-03-21T11:31:35.864460 #24565]  INFO -- default-ubuntu-1404: The following NEW packages will be installed:
+I, [2016-03-21T11:31:35.864546 #24565]  INFO -- default-ubuntu-1404:   gir1.2-glib-2.0 iso-codes libdbus-glib-1-2 libgirepository-1.0-1
+I, [2016-03-21T11:31:35.864582 #24565]  INFO -- default-ubuntu-1404:   libglib2.0-0 libglib2.0-data libxml2 python-apt-common python3-apt
+I, [2016-03-21T11:31:35.864649 #24565]  INFO -- default-ubuntu-1404:   python3-dbus python3-gi python3-pycurl python3-software-properties sgml-base
+I, [2016-03-21T11:31:35.864690 #24565]  INFO -- default-ubuntu-1404:   shared-mime-info software-properties-common unattended-upgrades xml-core
+I, [2016-03-21T11:31:35.864723 #24565]  INFO -- default-ubuntu-1404:   xz-utils
+I, [2016-03-21T11:31:35.870647 #24565]  INFO -- default-ubuntu-1404: 0 upgraded, 19 newly installed, 0 to remove and 36 not upgraded.
+I, [2016-03-21T11:31:36.697902 #24565]  INFO -- default-ubuntu-1404: Need to get 5124 kB of archives.
+I, [2016-03-21T11:31:36.698078 #24565]  INFO -- default-ubuntu-1404: After this operation, 30.8 MB of additional disk space will be used.
+I, [2016-03-21T11:31:37.518636 #24565]  INFO -- default-ubuntu-1404: 0% [Working]            Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libglib2.0-0 amd64 2.40.2-0ubuntu1 [1058 kB]
+I, [2016-03-21T11:31:38.380920 #24565]  INFO -- default-ubuntu-1404:             0% [1 libglib2.0-0 5538 B/1058 kB 1%]                                     10% [1 libglib2.0-0 520 kB/1058 kB 49%]                                       21% [Working]             Get:2 http://archive.ubuntu.com/ubuntu/ trusty/main libdbus-glib-1-2 amd64 0.100.2-1 [74.1 kB]
+I, [2016-03-21T11:31:38.482725 #24565]  INFO -- default-ubuntu-1404:              21% [2 libdbus-glib-1-2 14.2 kB/74.1 kB 19%]                                            22% [Working]             Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libxml2 amd64 2.9.1+dfsg1-3ubuntu4.7 [571 kB]
+I, [2016-03-21T11:31:38.851187 #24565]  INFO -- default-ubuntu-1404:              22% [3 libxml2 8436 B/571 kB 1%]                                33% [Working]             Get:4 http://archive.ubuntu.com/ubuntu/ trusty/main sgml-base all 1.26+nmu4ubuntu1 [12.5 kB]
+I, [2016-03-21T11:31:38.945727 #24565]  INFO -- default-ubuntu-1404:              33% [4 sgml-base 12.5 kB/12.5 kB 100%]                                      33% [Working]             Get:5 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgirepository-1.0-1 amd64 1.40.0-1ubuntu0.2 [85.6 kB]
+I, [2016-03-21T11:31:39.160642 #24565]  INFO -- default-ubuntu-1404:              34% [5 libgirepository-1.0-1 12.3 kB/85.6 kB 14%]                                                 35% [Working]             Get:6 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gir1.2-glib-2.0 amd64 1.40.0-1ubuntu0.2 [124 kB]
+I, [2016-03-21T11:31:39.912251 #24565]  INFO -- default-ubuntu-1404:              35% [6 gir1.2-glib-2.0 11.3 kB/124 kB 9%]38% [6 gir1.2-glib-2.0 121 kB/124 kB 98%]                                         38% [Working]             Get:7 http://archive.ubuntu.com/ubuntu/ trusty/main iso-codes all 3.52-1 [2073 kB]
+I, [2016-03-21T11:31:42.083993 #24565]  INFO -- default-ubuntu-1404:              38% [7 iso-codes 4090 B/2073 kB 0%]                                   43% [7 iso-codes 255 kB/2073 kB 12%]54% [7 iso-codes 834 kB/2073 kB 40%]                                    66% [7 iso-codes 1475 kB/2073 kB 71%]76% [7 iso-codes 1985 kB/2073 kB 96%]                                     78% [Working]             Get:8 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libglib2.0-data all 2.40.2-0ubuntu1 [116 kB]
+I, [2016-03-21T11:31:42.286080 #24565]  INFO -- default-ubuntu-1404:              78% [8 libglib2.0-data 12.3 kB/116 kB 11%]                                          80% [Working]             Get:9 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-apt-common all 0.9.3.5ubuntu2 [16.6 kB]
+I, [2016-03-21T11:31:42.376367 #24565]  INFO -- default-ubuntu-1404:              81% [9 python-apt-common 12.7 kB/16.6 kB 77%]                                             81% [Working]             Get:10 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python3-apt amd64 0.9.3.5ubuntu2 [139 kB]
+I, [2016-03-21T11:31:42.643548 #24565]  INFO -- default-ubuntu-1404:              81% [10 python3-apt 14.2 kB/139 kB 10%]                                       83% [Working]             Get:11 http://archive.ubuntu.com/ubuntu/ trusty/main python3-dbus amd64 1.2.0-2build2 [82.1 kB]
+I, [2016-03-21T11:31:42.829961 #24565]  INFO -- default-ubuntu-1404:              83% [11 python3-dbus 2645 B/82.1 kB 3%]                                       85% [Working]             Get:12 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python3-gi amd64 3.12.0-1ubuntu1 [154 kB]
+I, [2016-03-21T11:31:43.113827 #24565]  INFO -- default-ubuntu-1404:              85% [12 python3-gi 5540 B/154 kB 4%]                                    88% [Working]             Get:13 http://archive.ubuntu.com/ubuntu/ trusty/main shared-mime-info amd64 1.2-0ubuntu3 [415 kB]
+I, [2016-03-21T11:31:43.981768 #24565]  INFO -- default-ubuntu-1404:              88% [13 shared-mime-info 13.3 kB/415 kB 3%]                                           94% [13 shared-mime-info 321 kB/415 kB 77%]                         766 kB/s 0s96% [Working]                                                       766 kB/s 0s                                                                               Get:14 http://archive.ubuntu.com/ubuntu/ trusty/main xml-core all 0.13+nmu2 [23.3 kB]
+I, [2016-03-21T11:31:44.087285 #24565]  INFO -- default-ubuntu-1404: 96% [14 xml-core 11.3 kB/23.3 kB 49%]                               766 kB/s 0s96% [Working]                                                       766 kB/s 0s                                                                               Get:15 http://archive.ubuntu.com/ubuntu/ trusty/main python3-pycurl amd64 7.19.3-0ubuntu3 [47.5 kB]
+I, [2016-03-21T11:31:44.569320 #24565]  INFO -- default-ubuntu-1404: 97% [15 python3-pycurl 8438 B/47.5 kB 18%]                          766 kB/s 0s97% [Working]                                                       766 kB/s 0s                                                                               Get:16 http://archive.ubuntu.com/ubuntu/ trusty/main xz-utils amd64 5.1.1alpha+20120614-2ubuntu2 [78.8 kB]
+I, [2016-03-21T11:31:45.230154 #24565]  INFO -- default-ubuntu-1404: 98% [16 xz-utils 5541 B/78.8 kB 7%]                                 766 kB/s 0s99% [16 xz-utils 73.6 kB/78.8 kB 93%]                               766 kB/s 0s99% [Working]                                                       766 kB/s 0s                                                                               Get:17 http://archive.ubuntu.com/ubuntu/ trusty-updates/main unattended-upgrades all 0.82.1ubuntu2.4 [25.9 kB]
+I, [2016-03-21T11:31:45.528405 #24565]  INFO -- default-ubuntu-1404: 99% [17 unattended-upgrades 11.3 kB/25.9 kB 44%]                    766 kB/s 0s99% [Working]                                                       766 kB/s 0s                                                                               Get:18 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python3-software-properties all 0.92.37.7 [19.1 kB]
+I, [2016-03-21T11:31:46.032591 #24565]  INFO -- default-ubuntu-1404: 99% [18 python3-software-properties 1198 B/19.1 kB 6%]              766 kB/s 0s100% [Working]                                                      766 kB/s 0s                                                                               Get:19 http://archive.ubuntu.com/ubuntu/ trusty-updates/main software-properties-common all 0.92.37.7 [9356 B]
+I, [2016-03-21T11:31:46.129283 #24565]  INFO -- default-ubuntu-1404: 100% [19 software-properties-common 2647 B/9356 B 28%]              766 kB/s 0s100% [Working]                                                      766 kB/s 0s                                                                               Fetched 5124 kB in 8s (581 kB/s)
+I, [2016-03-21T11:31:46.907598 #24565]  INFO -- default-ubuntu-1404: perl: warning: Setting locale failed.
+I, [2016-03-21T11:31:46.907744 #24565]  INFO -- default-ubuntu-1404: perl: warning: Please check that your locale settings:
+I, [2016-03-21T11:31:46.907825 #24565]  INFO -- default-ubuntu-1404: 	LANGUAGE = (unset),
+I, [2016-03-21T11:31:46.908431 #24565]  INFO -- default-ubuntu-1404: 	LC_ALL = (unset),
+I, [2016-03-21T11:31:46.908536 #24565]  INFO -- default-ubuntu-1404: 	LC_CTYPE = "en_CA.UTF-8",
+I, [2016-03-21T11:31:46.908614 #24565]  INFO -- default-ubuntu-1404: 	LANG = "en_US.UTF-8"
+I, [2016-03-21T11:31:46.909266 #24565]  INFO -- default-ubuntu-1404:     are supported and installed on your system.
+I, [2016-03-21T11:31:46.909371 #24565]  INFO -- default-ubuntu-1404: perl: warning: Falling back to the standard locale ("C").
+I, [2016-03-21T11:31:46.962078 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_CTYPE to default locale: No such file or directory
+I, [2016-03-21T11:31:46.962457 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_ALL to default locale: No such file or directory
+I, [2016-03-21T11:32:02.157687 #24565]  INFO -- default-ubuntu-1404: Preconfiguring packages ...
+I, [2016-03-21T11:32:02.949796 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package libglib2.0-0:amd64.
+I, [2016-03-21T11:32:02.967538 #24565]  INFO -- default-ubuntu-1404: (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16838 files and directories currently installed.)
+I, [2016-03-21T11:32:02.968151 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../libglib2.0-0_2.40.2-0ubuntu1_amd64.deb ...
+I, [2016-03-21T11:32:02.980118 #24565]  INFO -- default-ubuntu-1404: Unpacking libglib2.0-0:amd64 (2.40.2-0ubuntu1) ...
+I, [2016-03-21T11:32:03.326367 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package libdbus-glib-1-2:amd64.
+I, [2016-03-21T11:32:03.329081 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../libdbus-glib-1-2_0.100.2-1_amd64.deb ...
+I, [2016-03-21T11:32:03.340680 #24565]  INFO -- default-ubuntu-1404: Unpacking libdbus-glib-1-2:amd64 (0.100.2-1) ...
+I, [2016-03-21T11:32:03.403638 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package libxml2:amd64.
+I, [2016-03-21T11:32:03.406570 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../libxml2_2.9.1+dfsg1-3ubuntu4.7_amd64.deb ...
+I, [2016-03-21T11:32:03.411211 #24565]  INFO -- default-ubuntu-1404: Unpacking libxml2:amd64 (2.9.1+dfsg1-3ubuntu4.7) ...
+I, [2016-03-21T11:32:03.586937 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package sgml-base.
+I, [2016-03-21T11:32:03.587771 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../sgml-base_1.26+nmu4ubuntu1_all.deb ...
+I, [2016-03-21T11:32:03.608967 #24565]  INFO -- default-ubuntu-1404: Unpacking sgml-base (1.26+nmu4ubuntu1) ...
+I, [2016-03-21T11:32:03.703814 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package libgirepository-1.0-1.
+I, [2016-03-21T11:32:03.706710 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../libgirepository-1.0-1_1.40.0-1ubuntu0.2_amd64.deb ...
+I, [2016-03-21T11:32:03.711423 #24565]  INFO -- default-ubuntu-1404: Unpacking libgirepository-1.0-1 (1.40.0-1ubuntu0.2) ...
+I, [2016-03-21T11:32:03.783265 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package gir1.2-glib-2.0.
+I, [2016-03-21T11:32:03.785725 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../gir1.2-glib-2.0_1.40.0-1ubuntu0.2_amd64.deb ...
+I, [2016-03-21T11:32:03.797519 #24565]  INFO -- default-ubuntu-1404: Unpacking gir1.2-glib-2.0 (1.40.0-1ubuntu0.2) ...
+I, [2016-03-21T11:32:03.899515 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package iso-codes.
+I, [2016-03-21T11:32:03.902505 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../iso-codes_3.52-1_all.deb ...
+I, [2016-03-21T11:32:03.913967 #24565]  INFO -- default-ubuntu-1404: Unpacking iso-codes (3.52-1) ...
+I, [2016-03-21T11:32:04.454727 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package libglib2.0-data.
+I, [2016-03-21T11:32:04.458593 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../libglib2.0-data_2.40.2-0ubuntu1_all.deb ...
+I, [2016-03-21T11:32:04.472819 #24565]  INFO -- default-ubuntu-1404: Unpacking libglib2.0-data (2.40.2-0ubuntu1) ...
+I, [2016-03-21T11:32:04.578170 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-apt-common.
+I, [2016-03-21T11:32:04.580842 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-apt-common_0.9.3.5ubuntu2_all.deb ...
+I, [2016-03-21T11:32:04.587006 #24565]  INFO -- default-ubuntu-1404: Unpacking python-apt-common (0.9.3.5ubuntu2) ...
+I, [2016-03-21T11:32:04.644368 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python3-apt.
+I, [2016-03-21T11:32:04.647226 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python3-apt_0.9.3.5ubuntu2_amd64.deb ...
+I, [2016-03-21T11:32:04.652086 #24565]  INFO -- default-ubuntu-1404: Unpacking python3-apt (0.9.3.5ubuntu2) ...
+I, [2016-03-21T11:32:04.751445 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python3-dbus.
+I, [2016-03-21T11:32:04.754631 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python3-dbus_1.2.0-2build2_amd64.deb ...
+I, [2016-03-21T11:32:04.766093 #24565]  INFO -- default-ubuntu-1404: Unpacking python3-dbus (1.2.0-2build2) ...
+I, [2016-03-21T11:32:04.882032 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python3-gi.
+I, [2016-03-21T11:32:04.885121 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python3-gi_3.12.0-1ubuntu1_amd64.deb ...
+I, [2016-03-21T11:32:04.889634 #24565]  INFO -- default-ubuntu-1404: Unpacking python3-gi (3.12.0-1ubuntu1) ...
+I, [2016-03-21T11:32:04.970813 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package shared-mime-info.
+I, [2016-03-21T11:32:04.973798 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../shared-mime-info_1.2-0ubuntu3_amd64.deb ...
+I, [2016-03-21T11:32:04.978324 #24565]  INFO -- default-ubuntu-1404: Unpacking shared-mime-info (1.2-0ubuntu3) ...
+I, [2016-03-21T11:32:05.153181 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package xml-core.
+I, [2016-03-21T11:32:05.156211 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../xml-core_0.13+nmu2_all.deb ...
+I, [2016-03-21T11:32:05.171281 #24565]  INFO -- default-ubuntu-1404: Unpacking xml-core (0.13+nmu2) ...
+I, [2016-03-21T11:32:05.239967 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python3-pycurl.
+I, [2016-03-21T11:32:05.242955 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python3-pycurl_7.19.3-0ubuntu3_amd64.deb ...
+I, [2016-03-21T11:32:05.247630 #24565]  INFO -- default-ubuntu-1404: Unpacking python3-pycurl (7.19.3-0ubuntu3) ...
+I, [2016-03-21T11:32:05.322154 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package xz-utils.
+I, [2016-03-21T11:32:05.325111 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../xz-utils_5.1.1alpha+20120614-2ubuntu2_amd64.deb ...
+I, [2016-03-21T11:32:05.336907 #24565]  INFO -- default-ubuntu-1404: Unpacking xz-utils (5.1.1alpha+20120614-2ubuntu2) ...
+I, [2016-03-21T11:32:05.471779 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package unattended-upgrades.
+I, [2016-03-21T11:32:05.474764 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../unattended-upgrades_0.82.1ubuntu2.4_all.deb ...
+I, [2016-03-21T11:32:05.479717 #24565]  INFO -- default-ubuntu-1404: Unpacking unattended-upgrades (0.82.1ubuntu2.4) ...
+I, [2016-03-21T11:32:05.551238 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python3-software-properties.
+I, [2016-03-21T11:32:05.554333 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python3-software-properties_0.92.37.7_all.deb ...
+I, [2016-03-21T11:32:05.566013 #24565]  INFO -- default-ubuntu-1404: Unpacking python3-software-properties (0.92.37.7) ...
+I, [2016-03-21T11:32:05.673135 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package software-properties-common.
+I, [2016-03-21T11:32:05.673597 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../software-properties-common_0.92.37.7_all.deb ...
+I, [2016-03-21T11:32:05.685110 #24565]  INFO -- default-ubuntu-1404: Unpacking software-properties-common (0.92.37.7) ...
+I, [2016-03-21T11:32:05.727811 #24565]  INFO -- default-ubuntu-1404: Processing triggers for ureadahead (0.100.0-16) ...
+I, [2016-03-21T11:32:06.414297 #24565]  INFO -- default-ubuntu-1404: Setting up libglib2.0-0:amd64 (2.40.2-0ubuntu1) ...
+I, [2016-03-21T11:32:06.456874 #24565]  INFO -- default-ubuntu-1404: No schema files found: doing nothing.
+I, [2016-03-21T11:32:06.492648 #24565]  INFO -- default-ubuntu-1404: Setting up libdbus-glib-1-2:amd64 (0.100.2-1) ...
+I, [2016-03-21T11:32:06.528644 #24565]  INFO -- default-ubuntu-1404: Setting up libxml2:amd64 (2.9.1+dfsg1-3ubuntu4.7) ...
+I, [2016-03-21T11:32:06.557350 #24565]  INFO -- default-ubuntu-1404: Setting up sgml-base (1.26+nmu4ubuntu1) ...
+I, [2016-03-21T11:32:06.638124 #24565]  INFO -- default-ubuntu-1404: Setting up libgirepository-1.0-1 (1.40.0-1ubuntu0.2) ...
+I, [2016-03-21T11:32:06.695030 #24565]  INFO -- default-ubuntu-1404: Setting up gir1.2-glib-2.0 (1.40.0-1ubuntu0.2) ...
+I, [2016-03-21T11:32:06.729849 #24565]  INFO -- default-ubuntu-1404: Setting up iso-codes (3.52-1) ...
+I, [2016-03-21T11:32:06.763736 #24565]  INFO -- default-ubuntu-1404: Setting up libglib2.0-data (2.40.2-0ubuntu1) ...
+I, [2016-03-21T11:32:06.778484 #24565]  INFO -- default-ubuntu-1404: Setting up python-apt-common (0.9.3.5ubuntu2) ...
+I, [2016-03-21T11:32:06.792270 #24565]  INFO -- default-ubuntu-1404: Setting up python3-apt (0.9.3.5ubuntu2) ...
+I, [2016-03-21T11:32:07.311567 #24565]  INFO -- default-ubuntu-1404: Setting up python3-dbus (1.2.0-2build2) ...
+I, [2016-03-21T11:32:07.615928 #24565]  INFO -- default-ubuntu-1404: Setting up python3-gi (3.12.0-1ubuntu1) ...
+I, [2016-03-21T11:32:07.962489 #24565]  INFO -- default-ubuntu-1404: Setting up shared-mime-info (1.2-0ubuntu3) ...
+I, [2016-03-21T11:32:08.503962 #24565]  INFO -- default-ubuntu-1404: Setting up xml-core (0.13+nmu2) ...
+I, [2016-03-21T11:32:08.857290 #24565]  INFO -- default-ubuntu-1404: Setting up python3-pycurl (7.19.3-0ubuntu3) ...
+I, [2016-03-21T11:32:09.128239 #24565]  INFO -- default-ubuntu-1404: Setting up xz-utils (5.1.1alpha+20120614-2ubuntu2) ...
+I, [2016-03-21T11:32:09.152968 #24565]  INFO -- default-ubuntu-1404: update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+I, [2016-03-21T11:32:09.164869 #24565]  INFO -- default-ubuntu-1404: Setting up unattended-upgrades (0.82.1ubuntu2.4) ...
+I, [2016-03-21T11:32:09.264359 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_CTYPE to default locale: No such file or directory
+I, [2016-03-21T11:32:09.264858 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_ALL to default locale: No such file or directory
+I, [2016-03-21T11:32:09.438749 #24565]  INFO -- default-ubuntu-1404: Processing triggers for ureadahead (0.100.0-16) ...
+I, [2016-03-21T11:32:09.454495 #24565]  INFO -- default-ubuntu-1404: Setting up python3-software-properties (0.92.37.7) ...
+I, [2016-03-21T11:32:09.742518 #24565]  INFO -- default-ubuntu-1404: Setting up software-properties-common (0.92.37.7) ...
+I, [2016-03-21T11:32:10.018839 #24565]  INFO -- default-ubuntu-1404: Processing triggers for libc-bin (2.19-0ubuntu6.6) ...
+I, [2016-03-21T11:32:10.067081 #24565]  INFO -- default-ubuntu-1404: Processing triggers for sgml-base (1.26+nmu4ubuntu1) ...
+I, [2016-03-21T11:32:13.496118 #24565]  INFO -- default-ubuntu-1404: Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 38%Reading package lists... Done
+I, [2016-03-21T11:32:14.250458 #24565]  INFO -- default-ubuntu-1404: Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... 77%Building dependency tree       
+I, [2016-03-21T11:32:14.250818 #24565]  INFO -- default-ubuntu-1404: Reading state information... 0%Reading state information... 1%Reading state information... Done
+I, [2016-03-21T11:32:14.359759 #24565]  INFO -- default-ubuntu-1404: The following extra packages will be installed:
+I, [2016-03-21T11:32:14.359889 #24565]  INFO -- default-ubuntu-1404:   python-apt python-pycurl
+I, [2016-03-21T11:32:14.361425 #24565]  INFO -- default-ubuntu-1404: Suggested packages:
+I, [2016-03-21T11:32:14.361546 #24565]  INFO -- default-ubuntu-1404:   python-apt-dbg python-gtk2 python-vte python-apt-doc libcurl4-gnutls-dev
+I, [2016-03-21T11:32:14.361615 #24565]  INFO -- default-ubuntu-1404:   python-pycurl-dbg
+I, [2016-03-21T11:32:14.364130 #24565]  INFO -- default-ubuntu-1404: The following NEW packages will be installed:
+I, [2016-03-21T11:32:14.364234 #24565]  INFO -- default-ubuntu-1404:   python-apt python-pycurl python-software-properties
+I, [2016-03-21T11:32:14.370135 #24565]  INFO -- default-ubuntu-1404: 0 upgraded, 3 newly installed, 0 to remove and 36 not upgraded.
+I, [2016-03-21T11:32:15.069881 #24565]  INFO -- default-ubuntu-1404: Need to get 208 kB of archives.
+I, [2016-03-21T11:32:15.070082 #24565]  INFO -- default-ubuntu-1404: After this operation, 1020 kB of additional disk space will be used.
+I, [2016-03-21T11:32:15.902700 #24565]  INFO -- default-ubuntu-1404: 0% [Working]            Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-apt amd64 0.9.3.5ubuntu2 [141 kB]
+I, [2016-03-21T11:32:16.316409 #24565]  INFO -- default-ubuntu-1404:             5% [1 python-apt 11.3 kB/141 kB 8%]                                   68% [Working]             Get:2 http://archive.ubuntu.com/ubuntu/ trusty/main python-pycurl amd64 7.19.3-0ubuntu3 [47.9 kB]
+I, [2016-03-21T11:32:16.420279 #24565]  INFO -- default-ubuntu-1404:              78% [2 python-pycurl 21.5 kB/47.9 kB 45%]                                         91% [Working]             Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-software-properties all 0.92.37.7 [19.6 kB]
+I, [2016-03-21T11:32:16.423492 #24565]  INFO -- default-ubuntu-1404:              94% [3 python-software-properties 7005 B/19.6 kB 36%]                                                     100% [Working]              Fetched 208 kB in 0s (281 kB/s)
+I, [2016-03-21T11:32:17.167513 #24565]  INFO -- default-ubuntu-1404: perl: warning: Setting locale failed.
+I, [2016-03-21T11:32:17.167709 #24565]  INFO -- default-ubuntu-1404: perl: warning: Please check that your locale settings:
+I, [2016-03-21T11:32:17.167781 #24565]  INFO -- default-ubuntu-1404: 	LANGUAGE = (unset),
+I, [2016-03-21T11:32:17.168252 #24565]  INFO -- default-ubuntu-1404: 	LC_ALL = (unset),
+I, [2016-03-21T11:32:17.168319 #24565]  INFO -- default-ubuntu-1404: 	LC_CTYPE = "en_CA.UTF-8",
+I, [2016-03-21T11:32:17.168381 #24565]  INFO -- default-ubuntu-1404: 	LANG = "en_US.UTF-8"
+I, [2016-03-21T11:32:17.168843 #24565]  INFO -- default-ubuntu-1404:     are supported and installed on your system.
+I, [2016-03-21T11:32:17.168922 #24565]  INFO -- default-ubuntu-1404: perl: warning: Falling back to the standard locale ("C").
+I, [2016-03-21T11:32:17.223889 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_CTYPE to default locale: No such file or directory
+I, [2016-03-21T11:32:17.224188 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_ALL to default locale: No such file or directory
+I, [2016-03-21T11:32:23.227160 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-apt.
+I, [2016-03-21T11:32:23.247856 #24565]  INFO -- default-ubuntu-1404: (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 17748 files and directories currently installed.)
+I, [2016-03-21T11:32:23.248814 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-apt_0.9.3.5ubuntu2_amd64.deb ...
+I, [2016-03-21T11:32:23.260578 #24565]  INFO -- default-ubuntu-1404: Unpacking python-apt (0.9.3.5ubuntu2) ...
+I, [2016-03-21T11:32:23.347134 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-pycurl.
+I, [2016-03-21T11:32:23.347326 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-pycurl_7.19.3-0ubuntu3_amd64.deb ...
+I, [2016-03-21T11:32:23.351716 #24565]  INFO -- default-ubuntu-1404: Unpacking python-pycurl (7.19.3-0ubuntu3) ...
+I, [2016-03-21T11:32:23.435993 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-software-properties.
+I, [2016-03-21T11:32:23.439045 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-software-properties_0.92.37.7_all.deb ...
+I, [2016-03-21T11:32:23.450626 #24565]  INFO -- default-ubuntu-1404: Unpacking python-software-properties (0.92.37.7) ...
+I, [2016-03-21T11:32:24.209148 #24565]  INFO -- default-ubuntu-1404: Setting up python-apt (0.9.3.5ubuntu2) ...
+I, [2016-03-21T11:32:24.678933 #24565]  INFO -- default-ubuntu-1404: Setting up python-pycurl (7.19.3-0ubuntu3) ...
+I, [2016-03-21T11:32:25.137873 #24565]  INFO -- default-ubuntu-1404: Setting up python-software-properties (0.92.37.7) ...
+I, [2016-03-21T11:32:28.131292 #24565]  INFO -- default-ubuntu-1404: gpg: keyring `/tmp/tmpaf_xs0m8/secring.gpg' created
+I, [2016-03-21T11:32:28.131771 #24565]  INFO -- default-ubuntu-1404: gpg: keyring `/tmp/tmpaf_xs0m8/pubring.gpg' created
+I, [2016-03-21T11:32:28.132323 #24565]  INFO -- default-ubuntu-1404: gpg: requesting key 7BB9C367 from hkp server keyserver.ubuntu.com
+I, [2016-03-21T11:32:28.604717 #24565]  INFO -- default-ubuntu-1404: gpg: /tmp/tmpaf_xs0m8/trustdb.gpg: trustdb created
+I, [2016-03-21T11:32:28.605440 #24565]  INFO -- default-ubuntu-1404: gpg: key 7BB9C367: public key "Launchpad PPA for Ansible, Inc." imported
+I, [2016-03-21T11:32:28.606052 #24565]  INFO -- default-ubuntu-1404: gpg: Total number processed: 1
+I, [2016-03-21T11:32:28.606559 #24565]  INFO -- default-ubuntu-1404: gpg:               imported: 1  (RSA: 1)
+I, [2016-03-21T11:32:31.782939 #24565]  INFO -- default-ubuntu-1404: OK
+I, [2016-03-21T11:32:34.589172 #24565]  INFO -- default-ubuntu-1404: 0% [Working]            Ign http://archive.ubuntu.com trusty InRelease
+I, [2016-03-21T11:32:34.674876 #24565]  INFO -- default-ubuntu-1404:             10% [Waiting for headers]                         Get:1 http://ppa.launchpad.net trusty InRelease [16.0 kB]
+I, [2016-03-21T11:32:35.948800 #24565]  INFO -- default-ubuntu-1404:                          62% [Waiting for headers] [1 InRelease 9839 B/16.0 kB 62%]                                                          Hit http://archive.ubuntu.com trusty-updates InRelease
+I, [2016-03-21T11:32:35.949016 #24565]  INFO -- default-ubuntu-1404:                                                           100% [1 InRelease 16.0 kB/16.0 kB 100%]                                       Hit http://archive.ubuntu.com trusty-security InRelease
+I, [2016-03-21T11:32:36.044907 #24565]  INFO -- default-ubuntu-1404:                                        100% [Working]              100% [InRelease gpgv 65.9 kB] [Waiting for headers]                                                   Hit http://archive.ubuntu.com trusty Release.gpg
+I, [2016-03-21T11:32:36.140815 #24565]  INFO -- default-ubuntu-1404:                                                    100% [InRelease gpgv 65.9 kB]                             Hit http://archive.ubuntu.com trusty Release
+I, [2016-03-21T11:32:38.030191 #24565]  INFO -- default-ubuntu-1404: 100% [InRelease gpgv 65.9 kB]                             100% [Working]              100% [InRelease gpgv 65.9 kB]                             Hit http://archive.ubuntu.com trusty-updates/main Sources
+I, [2016-03-21T11:32:38.138845 #24565]  INFO -- default-ubuntu-1404: 100% [InRelease gpgv 65.9 kB]                             100% [Working]              100% [Sources 331 kB]                     100% [Sources 331 kB] [1 InRelease gpgv 16.0 kB]                                                100% [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                     Hit http://archive.ubuntu.com trusty-updates/restricted Sources
+I, [2016-03-21T11:32:38.235843 #24565]  INFO -- default-ubuntu-1404:                                                      100% [1 InRelease gpgv 16.0 kB]                               100% [Sources 0 B] [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                                   100% [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                     Hit http://archive.ubuntu.com trusty-updates/universe Sources
+I, [2016-03-21T11:32:38.339722 #24565]  INFO -- default-ubuntu-1404:                                                      100% [1 InRelease gpgv 16.0 kB]                               100% [Sources 0 B] [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                                   100% [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                     Hit http://archive.ubuntu.com trusty-updates/main amd64 Packages
+I, [2016-03-21T11:32:38.437204 #24565]  INFO -- default-ubuntu-1404:                                                      100% [1 InRelease gpgv 16.0 kB]                               100% [Packages 0 B] [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                                    Hit http://archive.ubuntu.com trusty-updates/restricted amd64 Packages
+I, [2016-03-21T11:32:38.543101 #24565]  INFO -- default-ubuntu-1404:                                                                     100% [Packages 918 kB] [1 InRelease gpgv 16.0 kB]                                                 100% [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                     100% [Packages 0 B] [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                                    100% [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                     Hit http://archive.ubuntu.com trusty-updates/universe amd64 Packages
+I, [2016-03-21T11:32:38.646400 #24565]  INFO -- default-ubuntu-1404:                                                      100% [1 InRelease gpgv 16.0 kB]                               100% [Packages 0 B] [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                                    100% [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                     Hit http://archive.ubuntu.com trusty-security/main Sources
+I, [2016-03-21T11:32:38.753601 #24565]  INFO -- default-ubuntu-1404:                                                      100% [1 InRelease gpgv 16.0 kB]                               100% [Sources 0 B] [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                                   100% [1 InRelease gpgv 16.0 kB] [Waiting for headers]                                                     100% [Waiting for headers]                          100% [Release gpgv 58.5 kB] [Waiting for headers]                                                 100% [Waiting for headers] [Waiting for headers]                                                Hit http://archive.ubuntu.com trusty-security/restricted Sources
+I, [2016-03-21T11:32:38.860600 #24565]  INFO -- default-ubuntu-1404:                                                 100% [Waiting for headers]                          100% [Sources 0 B] [Waiting for headers] [Waiting for headers]                                                              100% [Waiting for headers] [Waiting for headers]                                                Hit http://archive.ubuntu.com trusty-security/universe Sources
+I, [2016-03-21T11:32:38.872779 #24565]  INFO -- default-ubuntu-1404:                                                 100% [Waiting for headers]                          100% [Sources 0 B] [Waiting for headers] [Waiting for headers]                                                              100% [Waiting for headers] [Waiting for headers]                                                Get:2 http://ppa.launchpad.net trusty/main amd64 Packages [458 B]
+I, [2016-03-21T11:32:38.974586 #24565]  INFO -- default-ubuntu-1404:                                                 100% [Waiting for headers]                          100% [2 Packages 0 B] [Waiting for headers]                                           100% [Waiting for headers]                          Hit http://archive.ubuntu.com trusty-security/main amd64 Packages
+I, [2016-03-21T11:32:39.081251 #24565]  INFO -- default-ubuntu-1404:                           100% [Working]              100% [Packages 0 B] [Waiting for headers]                                         100% [Waiting for headers]                          Hit http://archive.ubuntu.com trusty-security/restricted amd64 Packages
+I, [2016-03-21T11:32:39.186847 #24565]  INFO -- default-ubuntu-1404:                           100% [Working]              100% [Packages 0 B] [Waiting for headers]                                         100% [Waiting for headers]                          Hit http://archive.ubuntu.com trusty-security/universe amd64 Packages
+I, [2016-03-21T11:32:39.292625 #24565]  INFO -- default-ubuntu-1404:                           100% [Working]              100% [Packages 0 B] [Waiting for headers]                                         100% [Waiting for headers]                          Hit http://archive.ubuntu.com trusty/main Sources
+I, [2016-03-21T11:32:39.528232 #24565]  INFO -- default-ubuntu-1404:                           100% [Working]              100% [Sources 0 B] [Waiting for headers]                                        100% [Waiting for headers]                          Hit http://archive.ubuntu.com trusty/restricted Sources
+I, [2016-03-21T11:32:39.637806 #24565]  INFO -- default-ubuntu-1404:                           100% [Working]              100% [Sources 0 B] [Waiting for headers]                                        100% [Waiting for headers]                          Hit http://archive.ubuntu.com trusty/universe Sources
+I, [2016-03-21T11:32:39.736903 #24565]  INFO -- default-ubuntu-1404:                           100% [Working]              100% [Sources 0 B] [Waiting for headers]                                        Hit http://archive.ubuntu.com trusty/main amd64 Packages
+I, [2016-03-21T11:32:39.838625 #24565]  INFO -- default-ubuntu-1404:                                         100% [Sources 7926 kB]                      Hit http://archive.ubuntu.com trusty/restricted amd64 Packages
+I, [2016-03-21T11:32:39.934341 #24565]  INFO -- default-ubuntu-1404: 100% [Sources 7926 kB]                      Hit http://archive.ubuntu.com trusty/universe amd64 Packages
+I, [2016-03-21T11:32:41.625892 #24565]  INFO -- default-ubuntu-1404: 100% [Sources 7926 kB]                      100% [Sources 7926 kB]                                              688 kB/s 0s100% [Working]                                                      688 kB/s 0s100% [Packages 0 B]                                                 688 kB/s 0s100% [Working]                                                      688 kB/s 0s100% [Packages 0 B]                                                 688 kB/s 0s100% [Working]                                                      688 kB/s 0s100% [Packages 0 B]                                                 688 kB/s 0s100% [Packages 7589 kB]                                             688 kB/s 0s100% [Working]                                                      688 kB/s 0s                                                                               Fetched 16.4 kB in 7s (2258 B/s)
+I, [2016-03-21T11:32:44.409774 #24565]  INFO -- default-ubuntu-1404: Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 37%Reading package lists... Done
+I, [2016-03-21T11:32:47.822523 #24565]  INFO -- default-ubuntu-1404: Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 37%Reading package lists... Done
+I, [2016-03-21T11:32:48.605343 #24565]  INFO -- default-ubuntu-1404: Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... 65%Building dependency tree       
+I, [2016-03-21T11:32:48.605645 #24565]  INFO -- default-ubuntu-1404: Reading state information... 0%Reading state information... 1%Reading state information... Done
+I, [2016-03-21T11:32:48.720620 #24565]  INFO -- default-ubuntu-1404: The following extra packages will be installed:
+I, [2016-03-21T11:32:48.720745 #24565]  INFO -- default-ubuntu-1404:   libgmp10 libyaml-0-2 python-crypto python-httplib2 python-jinja2
+I, [2016-03-21T11:32:48.720796 #24565]  INFO -- default-ubuntu-1404:   python-markupsafe python-paramiko python-pkg-resources python-setuptools
+I, [2016-03-21T11:32:48.720840 #24565]  INFO -- default-ubuntu-1404:   python-support python-yaml sshpass
+I, [2016-03-21T11:32:48.721843 #24565]  INFO -- default-ubuntu-1404: Suggested packages:
+I, [2016-03-21T11:32:48.721944 #24565]  INFO -- default-ubuntu-1404:   python-crypto-dbg python-crypto-doc python-jinja2-doc python-distribute
+I, [2016-03-21T11:32:48.721984 #24565]  INFO -- default-ubuntu-1404:   python-distribute-doc
+I, [2016-03-21T11:32:48.724025 #24565]  INFO -- default-ubuntu-1404: The following NEW packages will be installed:
+I, [2016-03-21T11:32:48.724109 #24565]  INFO -- default-ubuntu-1404:   ansible libgmp10 libyaml-0-2 python-crypto python-httplib2 python-jinja2
+I, [2016-03-21T11:32:48.724146 #24565]  INFO -- default-ubuntu-1404:   python-markupsafe python-paramiko python-pkg-resources python-setuptools
+I, [2016-03-21T11:32:48.724180 #24565]  INFO -- default-ubuntu-1404:   python-support python-yaml sshpass
+I, [2016-03-21T11:32:48.729883 #24565]  INFO -- default-ubuntu-1404: 0 upgraded, 13 newly installed, 0 to remove and 36 not upgraded.
+I, [2016-03-21T11:32:49.724288 #24565]  INFO -- default-ubuntu-1404: Need to get 2278 kB of archives.
+I, [2016-03-21T11:32:49.724370 #24565]  INFO -- default-ubuntu-1404: After this operation, 13.0 MB of additional disk space will be used.
+I, [2016-03-21T11:32:51.163500 #24565]  INFO -- default-ubuntu-1404: 0% [Working]            Get:1 http://archive.ubuntu.com/ubuntu/ trusty/main libgmp10 amd64 2:5.1.3+dfsg-1ubuntu1 [218 kB]
+I, [2016-03-21T11:32:51.273117 #24565]  INFO -- default-ubuntu-1404:             1% [1 libgmp10 14.2 kB/218 kB 7%] [Waiting for headers]                                                       Get:2 http://ppa.launchpad.net/ansible/ansible/ubuntu/ trusty/main ansible all 2.0.1.0-1ppa~trusty [1025 kB]
+I, [2016-03-21T11:32:52.375021 #24565]  INFO -- default-ubuntu-1404:                                                        2% [1 libgmp10 28.7 kB/218 kB 13%] [2 ansible 8442 B/1025 kB 1%]                                                                11% [1 libgmp10 110 kB/218 kB 50%] [2 ansible 137 kB/1025 kB 13%]23% [1 libgmp10 217 kB/218 kB 99%] [2 ansible 318 kB/1025 kB 31%]                                                                 24% [2 ansible 318 kB/1025 kB 31%]                                  Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libyaml-0-2 amd64 0.1.4-3ubuntu3.1 [48.1 kB]
+I, [2016-03-21T11:32:52.562104 #24565]  INFO -- default-ubuntu-1404:                                   27% [3 libyaml-0-2 22.9 kB/48.1 kB 48%] [2 ansible 368 kB/1025 kB 36%]                                                                      29% [2 ansible 391 kB/1025 kB 38%]                                  Get:4 http://archive.ubuntu.com/ubuntu/ trusty/universe python-support all 1.0.15 [26.7 kB]
+I, [2016-03-21T11:32:52.734955 #24565]  INFO -- default-ubuntu-1404:                                   32% [4 python-support 18.6 kB/26.7 kB 70%] [2 ansible 449 kB/1025 kB 44%]                                                                         35% [2 ansible 507 kB/1025 kB 49%]                                  Get:5 http://archive.ubuntu.com/ubuntu/ trusty/main python-markupsafe amd64 0.18-1build2 [14.3 kB]
+I, [2016-03-21T11:32:52.825384 #24565]  INFO -- default-ubuntu-1404:                                   36% [5 python-markupsafe 5542 B/14.3 kB 39%] [2 ansible 521 kB/1025 kB 51%]                                                                           36% [2 ansible 521 kB/1025 kB 51%]                                  Get:6 http://archive.ubuntu.com/ubuntu/ trusty/main python-jinja2 all 2.7.2-2 [161 kB]
+I, [2016-03-21T11:32:53.361230 #24565]  INFO -- default-ubuntu-1404:                                   40% [6 python-jinja2 17.1 kB/161 kB 11%] [2 ansible 593 kB/1025 kB 58%]                                                                       57% [2 ansible 828 kB/1025 kB 81%]                                  Get:7 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-yaml amd64 3.10-4ubuntu0.1 [102 kB]
+I, [2016-03-21T11:32:53.643208 #24565]  INFO -- default-ubuntu-1404:                                   59% [7 python-yaml 21.5 kB/102 kB 21%] [2 ansible 858 kB/1025 kB 84%]                                                                     68% [2 ansible 968 kB/1025 kB 94%]                                  Get:8 http://archive.ubuntu.com/ubuntu/ trusty/main python-crypto amd64 2.6.1-4build1 [239 kB]
+I, [2016-03-21T11:32:54.190219 #24565]  INFO -- default-ubuntu-1404:                                   68% [8 python-crypto 8436 B/239 kB 4%] [2 ansible 968 kB/1025 kB 94%]                                                                     72% [8 python-crypto 40.3 kB/239 kB 17%]                                        81% [Working]             Get:9 http://archive.ubuntu.com/ubuntu/ trusty/main python-paramiko all 1.10.1-1git1build1 [106 kB]
+I, [2016-03-21T11:32:54.456098 #24565]  INFO -- default-ubuntu-1404:              81% [9 python-paramiko 11.3 kB/106 kB 11%]                                          85% [Working]             Get:10 http://archive.ubuntu.com/ubuntu/ trusty/main python-httplib2 all 0.8-2build1 [35.4 kB]
+I, [2016-03-21T11:32:54.548604 #24565]  INFO -- default-ubuntu-1404:              86% [10 python-httplib2 17.1 kB/35.4 kB 48%]                                            87% [Working]             Get:11 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-pkg-resources all 3.3-1ubuntu2 [61.9 kB]
+I, [2016-03-21T11:32:54.727993 #24565]  INFO -- default-ubuntu-1404:              87% [11 python-pkg-resources 4094 B/61.9 kB 7%]                                               89% [Working]             Get:12 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-setuptools all 3.3-1ubuntu2 [230 kB]
+I, [2016-03-21T11:32:55.109987 #24565]  INFO -- default-ubuntu-1404:              90% [12 python-setuptools 22.9 kB/230 kB 10%]                                             100% [Working]              Get:13 http://archive.ubuntu.com/ubuntu/ trusty/universe sshpass amd64 1.05-1 [10.5 kB]
+I, [2016-03-21T11:32:55.110725 #24565]  INFO -- default-ubuntu-1404:               100% [13 sshpass 10.5 kB/10.5 kB 100%]                                      100% [Working]              Fetched 2278 kB in 4s (549 kB/s)
+I, [2016-03-21T11:32:55.876994 #24565]  INFO -- default-ubuntu-1404: perl: warning: Setting locale failed.
+I, [2016-03-21T11:32:55.877140 #24565]  INFO -- default-ubuntu-1404: perl: warning: Please check that your locale settings:
+I, [2016-03-21T11:32:55.877650 #24565]  INFO -- default-ubuntu-1404: 	LANGUAGE = (unset),
+I, [2016-03-21T11:32:55.877725 #24565]  INFO -- default-ubuntu-1404: 	LC_ALL = (unset),
+I, [2016-03-21T11:32:55.877808 #24565]  INFO -- default-ubuntu-1404: 	LC_CTYPE = "en_CA.UTF-8",
+I, [2016-03-21T11:32:55.878303 #24565]  INFO -- default-ubuntu-1404: 	LANG = "en_US.UTF-8"
+I, [2016-03-21T11:32:55.878394 #24565]  INFO -- default-ubuntu-1404:     are supported and installed on your system.
+I, [2016-03-21T11:32:55.878470 #24565]  INFO -- default-ubuntu-1404: perl: warning: Falling back to the standard locale ("C").
+I, [2016-03-21T11:32:55.929772 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_CTYPE to default locale: No such file or directory
+I, [2016-03-21T11:32:55.930116 #24565]  INFO -- default-ubuntu-1404: locale: Cannot set LC_ALL to default locale: No such file or directory
+I, [2016-03-21T11:33:08.027043 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package libgmp10:amd64.
+I, [2016-03-21T11:33:08.045169 #24565]  INFO -- default-ubuntu-1404: (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 17820 files and directories currently installed.)
+I, [2016-03-21T11:33:08.046824 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../libgmp10_2%3a5.1.3+dfsg-1ubuntu1_amd64.deb ...
+I, [2016-03-21T11:33:08.052824 #24565]  INFO -- default-ubuntu-1404: Unpacking libgmp10:amd64 (2:5.1.3+dfsg-1ubuntu1) ...
+I, [2016-03-21T11:33:08.139621 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package libyaml-0-2:amd64.
+I, [2016-03-21T11:33:08.142872 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../libyaml-0-2_0.1.4-3ubuntu3.1_amd64.deb ...
+I, [2016-03-21T11:33:08.147935 #24565]  INFO -- default-ubuntu-1404: Unpacking libyaml-0-2:amd64 (0.1.4-3ubuntu3.1) ...
+I, [2016-03-21T11:33:08.251035 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-support.
+I, [2016-03-21T11:33:08.254255 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-support_1.0.15_all.deb ...
+I, [2016-03-21T11:33:08.266162 #24565]  INFO -- default-ubuntu-1404: Unpacking python-support (1.0.15) ...
+I, [2016-03-21T11:33:08.398485 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-markupsafe.
+I, [2016-03-21T11:33:08.401757 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-markupsafe_0.18-1build2_amd64.deb ...
+I, [2016-03-21T11:33:08.413460 #24565]  INFO -- default-ubuntu-1404: Unpacking python-markupsafe (0.18-1build2) ...
+I, [2016-03-21T11:33:08.471902 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-jinja2.
+I, [2016-03-21T11:33:08.474495 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-jinja2_2.7.2-2_all.deb ...
+I, [2016-03-21T11:33:08.479601 #24565]  INFO -- default-ubuntu-1404: Unpacking python-jinja2 (2.7.2-2) ...
+I, [2016-03-21T11:33:08.635537 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-yaml.
+I, [2016-03-21T11:33:08.638538 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-yaml_3.10-4ubuntu0.1_amd64.deb ...
+I, [2016-03-21T11:33:08.650695 #24565]  INFO -- default-ubuntu-1404: Unpacking python-yaml (3.10-4ubuntu0.1) ...
+I, [2016-03-21T11:33:08.764746 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-crypto.
+I, [2016-03-21T11:33:08.767644 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-crypto_2.6.1-4build1_amd64.deb ...
+I, [2016-03-21T11:33:08.772403 #24565]  INFO -- default-ubuntu-1404: Unpacking python-crypto (2.6.1-4build1) ...
+I, [2016-03-21T11:33:08.911656 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-paramiko.
+I, [2016-03-21T11:33:08.915441 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-paramiko_1.10.1-1git1build1_all.deb ...
+I, [2016-03-21T11:33:08.919290 #24565]  INFO -- default-ubuntu-1404: Unpacking python-paramiko (1.10.1-1git1build1) ...
+I, [2016-03-21T11:33:09.027032 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-httplib2.
+I, [2016-03-21T11:33:09.028049 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-httplib2_0.8-2build1_all.deb ...
+I, [2016-03-21T11:33:09.038889 #24565]  INFO -- default-ubuntu-1404: Unpacking python-httplib2 (0.8-2build1) ...
+I, [2016-03-21T11:33:09.108814 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-pkg-resources.
+I, [2016-03-21T11:33:09.111591 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-pkg-resources_3.3-1ubuntu2_all.deb ...
+I, [2016-03-21T11:33:09.115747 #24565]  INFO -- default-ubuntu-1404: Unpacking python-pkg-resources (3.3-1ubuntu2) ...
+I, [2016-03-21T11:33:09.162129 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package python-setuptools.
+I, [2016-03-21T11:33:09.165043 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../python-setuptools_3.3-1ubuntu2_all.deb ...
+I, [2016-03-21T11:33:09.168952 #24565]  INFO -- default-ubuntu-1404: Unpacking python-setuptools (3.3-1ubuntu2) ...
+I, [2016-03-21T11:33:09.292628 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package sshpass.
+I, [2016-03-21T11:33:09.292801 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../sshpass_1.05-1_amd64.deb ...
+I, [2016-03-21T11:33:09.303560 #24565]  INFO -- default-ubuntu-1404: Unpacking sshpass (1.05-1) ...
+I, [2016-03-21T11:33:09.386008 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package ansible.
+I, [2016-03-21T11:33:09.388653 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../ansible_2.0.1.0-1ppa~trusty_all.deb ...
+I, [2016-03-21T11:33:09.393624 #24565]  INFO -- default-ubuntu-1404: Unpacking ansible (2.0.1.0-1ppa~trusty) ...
+I, [2016-03-21T11:33:10.420979 #24565]  INFO -- default-ubuntu-1404: Setting up libgmp10:amd64 (2:5.1.3+dfsg-1ubuntu1) ...
+I, [2016-03-21T11:33:10.455624 #24565]  INFO -- default-ubuntu-1404: Setting up libyaml-0-2:amd64 (0.1.4-3ubuntu3.1) ...
+I, [2016-03-21T11:33:10.496553 #24565]  INFO -- default-ubuntu-1404: Setting up python-support (1.0.15) ...
+I, [2016-03-21T11:33:12.078639 #24565]  INFO -- default-ubuntu-1404: Setting up python-markupsafe (0.18-1build2) ...
+I, [2016-03-21T11:33:12.498715 #24565]  INFO -- default-ubuntu-1404: Setting up python-jinja2 (2.7.2-2) ...
+I, [2016-03-21T11:33:13.044950 #24565]  INFO -- default-ubuntu-1404: Setting up python-yaml (3.10-4ubuntu0.1) ...
+I, [2016-03-21T11:33:13.516000 #24565]  INFO -- default-ubuntu-1404: Setting up python-crypto (2.6.1-4build1) ...
+I, [2016-03-21T11:33:14.088898 #24565]  INFO -- default-ubuntu-1404: Setting up python-paramiko (1.10.1-1git1build1) ...
+I, [2016-03-21T11:33:14.604994 #24565]  INFO -- default-ubuntu-1404: Setting up python-httplib2 (0.8-2build1) ...
+I, [2016-03-21T11:33:15.045622 #24565]  INFO -- default-ubuntu-1404: Setting up python-pkg-resources (3.3-1ubuntu2) ...
+I, [2016-03-21T11:33:15.466935 #24565]  INFO -- default-ubuntu-1404: Setting up python-setuptools (3.3-1ubuntu2) ...
+I, [2016-03-21T11:33:16.001284 #24565]  INFO -- default-ubuntu-1404: Setting up sshpass (1.05-1) ...
+I, [2016-03-21T11:33:16.035074 #24565]  INFO -- default-ubuntu-1404: Setting up ansible (2.0.1.0-1ppa~trusty) ...
+I, [2016-03-21T11:33:16.283766 #24565]  INFO -- default-ubuntu-1404: Processing triggers for libc-bin (2.19-0ubuntu6.6) ...
+I, [2016-03-21T11:33:16.332714 #24565]  INFO -- default-ubuntu-1404: Processing triggers for python-support (1.0.15) ...
+I, [2016-03-21T11:33:17.406483 #24565]  INFO -- default-ubuntu-1404: -----> Installing Chef Omnibus to install busser to run tests
+I, [2016-03-21T11:33:17.406627 #24565]  INFO -- default-ubuntu-1404: downloading https://www.getchef.com/chef/install.sh
+I, [2016-03-21T11:33:17.406713 #24565]  INFO -- default-ubuntu-1404:   to file /tmp/install.sh
+I, [2016-03-21T11:33:17.406788 #24565]  INFO -- default-ubuntu-1404: trying wget...
+I, [2016-03-21T11:33:17.720615 #24565]  INFO -- default-ubuntu-1404: ubuntu 14.04 x86_64
+I, [2016-03-21T11:33:17.721348 #24565]  INFO -- default-ubuntu-1404: Getting information for chef stable  for ubuntu...
+I, [2016-03-21T11:33:17.721928 #24565]  INFO -- default-ubuntu-1404: downloading https://omnitruck-direct.chef.io/stable/chef/metadata?v=&p=ubuntu&pv=14.04&m=x86_64
+I, [2016-03-21T11:33:17.722099 #24565]  INFO -- default-ubuntu-1404:   to file /tmp/install.sh.1016/metadata.txt
+I, [2016-03-21T11:33:17.722571 #24565]  INFO -- default-ubuntu-1404: trying wget...
+I, [2016-03-21T11:33:17.885993 #24565]  INFO -- default-ubuntu-1404: url	https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/14.04/x86_64/chef_12.8.1-1_amd64.deb
+I, [2016-03-21T11:33:17.886136 #24565]  INFO -- default-ubuntu-1404: md5	c438d5426fed0a32283e8d7e0e32e902
+I, [2016-03-21T11:33:17.886217 #24565]  INFO -- default-ubuntu-1404: sha256	92b7f3eba0a62b20eced2eae03ec2a5e382da4b044c38c20d2902393683c77f7
+I, [2016-03-21T11:33:17.887052 #24565]  INFO -- default-ubuntu-1404: version	12.8.1
+I, [2016-03-21T11:33:17.895253 #24565]  INFO -- default-ubuntu-1404: downloaded metadata file looks valid...
+I, [2016-03-21T11:33:17.917408 #24565]  INFO -- default-ubuntu-1404: downloading https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/14.04/x86_64/chef_12.8.1-1_amd64.deb
+I, [2016-03-21T11:33:17.917587 #24565]  INFO -- default-ubuntu-1404:   to file /tmp/install.sh.1016/chef_12.8.1-1_amd64.deb
+I, [2016-03-21T11:33:17.918273 #24565]  INFO -- default-ubuntu-1404: trying wget...
+I, [2016-03-21T11:33:49.713985 #24565]  INFO -- default-ubuntu-1404: Comparing checksum with sha256sum...
+I, [2016-03-21T11:33:50.160138 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:33:50.160289 #24565]  INFO -- default-ubuntu-1404: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2016-03-21T11:33:50.160372 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:33:50.160423 #24565]  INFO -- default-ubuntu-1404: You are installing an omnibus package without a version pin.  If you are installing
+I, [2016-03-21T11:33:50.160466 #24565]  INFO -- default-ubuntu-1404: on production servers via an automated process this is DANGEROUS and you will
+I, [2016-03-21T11:33:50.160523 #24565]  INFO -- default-ubuntu-1404: be upgraded without warning on new releases, even to new major releases.
+I, [2016-03-21T11:33:50.160575 #24565]  INFO -- default-ubuntu-1404: Letting the version float is only appropriate in desktop, test, development or
+I, [2016-03-21T11:33:50.160654 #24565]  INFO -- default-ubuntu-1404: CI/CD environments.
+I, [2016-03-21T11:33:50.160727 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:33:50.160802 #24565]  INFO -- default-ubuntu-1404: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2016-03-21T11:33:50.160876 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:33:50.160948 #24565]  INFO -- default-ubuntu-1404: Installing chef 
+I, [2016-03-21T11:33:50.161047 #24565]  INFO -- default-ubuntu-1404: installing with dpkg...
+I, [2016-03-21T11:33:50.240872 #24565]  INFO -- default-ubuntu-1404: Selecting previously unselected package chef.
+I, [2016-03-21T11:33:50.264175 #24565]  INFO -- default-ubuntu-1404: (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 19184 files and directories currently installed.)
+I, [2016-03-21T11:33:50.264965 #24565]  INFO -- default-ubuntu-1404: Preparing to unpack .../chef_12.8.1-1_amd64.deb ...
+I, [2016-03-21T11:33:50.269875 #24565]  INFO -- default-ubuntu-1404: Unpacking chef (12.8.1-1) ...
+I, [2016-03-21T11:33:56.253306 #24565]  INFO -- default-ubuntu-1404: Setting up chef (12.8.1-1) ...
+I, [2016-03-21T11:33:56.556761 #24565]  INFO -- default-ubuntu-1404: Thank you for installing Chef!
+I, [2016-03-21T11:33:56.686891 #24565]  INFO -- default-ubuntu-1404: Transferring files to <default-ubuntu-1404>
+I, [2016-03-21T11:33:58.771108 #24565]  INFO -- default-ubuntu-1404: - downloading role 'apt-repository', owned by telusdigital
+I, [2016-03-21T11:33:59.630228 #24565]  INFO -- default-ubuntu-1404: - downloading role from https://github.com/telusdigital/ansible-apt-repository/archive/master.tar.gz
+I, [2016-03-21T11:34:01.232202 #24565]  INFO -- default-ubuntu-1404: - extracting telusdigital.apt-repository to /tmp/kitchen/roles/telusdigital.apt-repository
+I, [2016-03-21T11:34:01.236208 #24565]  INFO -- default-ubuntu-1404: - telusdigital.apt-repository was installed successfully
+I, [2016-03-21T11:34:01.601456 #24565]  INFO -- default-ubuntu-1404: - downloading role 'logrotate', owned by telusdigital
+I, [2016-03-21T11:34:02.459751 #24565]  INFO -- default-ubuntu-1404: - downloading role from https://github.com/telusdigital/ansible-logrotate/archive/master.tar.gz
+I, [2016-03-21T11:34:07.326257 #24565]  INFO -- default-ubuntu-1404: - extracting telusdigital.logrotate to /tmp/kitchen/roles/telusdigital.logrotate
+I, [2016-03-21T11:34:07.329664 #24565]  INFO -- default-ubuntu-1404: - telusdigital.logrotate was installed successfully
+I, [2016-03-21T11:34:07.348905 #24565]  INFO -- default-ubuntu-1404: Going to invoke ansible-playbook with: ANSIBLE_ROLES_PATH=/tmp/kitchen/roles sudo -Es  ansible-playbook --inventory-file=/tmp/kitchen/hosts -c local -M /tmp/kitchen/modules         /tmp/kitchen/default.yml
+I, [2016-03-21T11:34:07.750323 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:34:07.750446 #24565]  INFO -- default-ubuntu-1404: PLAY ***************************************************************************
+I, [2016-03-21T11:34:07.775154 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:34:07.775262 #24565]  INFO -- default-ubuntu-1404: TASK [setup] *******************************************************************
+I, [2016-03-21T11:34:15.480858 #24565]  INFO -- default-ubuntu-1404: [0;32mok: [localhost][0m
+I, [2016-03-21T11:34:15.492073 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:34:15.492181 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.apt-repository : include] ***********************************
+I, [2016-03-21T11:34:15.568642 #24565]  INFO -- default-ubuntu-1404: [0;36mincluded: /tmp/kitchen/roles/telusdigital.apt-repository/tasks/install.yml for localhost[0m
+I, [2016-03-21T11:34:15.581510 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:34:15.581608 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.apt-repository : Install apt HTTPS Transport | apt] *********
+I, [2016-03-21T11:35:02.054028 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:35:02.088744 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:35:02.088862 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.apt-repository : Import Signing Key via HKP | 0x9ecbec467f0ceb10] ***
+I, [2016-03-21T11:35:25.612758 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:35:25.621342 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:35:25.621435 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.apt-repository : Import Signing Key via public_key | 0x9ecbec467f0ceb10] ***
+I, [2016-03-21T11:35:25.688582 #24565]  INFO -- default-ubuntu-1404: [0;36mskipping: [localhost][0m
+I, [2016-03-21T11:35:25.698782 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:35:25.698873 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.apt-repository : Import Repository | deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen] ***
+I, [2016-03-21T11:35:51.813269 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:35:51.816401 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:35:51.816469 #24565]  INFO -- default-ubuntu-1404: RUNNING HANDLER [telusdigital.apt-repository : Update Package Cache] ***********
+I, [2016-03-21T11:36:15.506496 #24565]  INFO -- default-ubuntu-1404: [0;32mok: [localhost][0m
+I, [2016-03-21T11:36:15.520247 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:36:15.520344 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.logrotate : include] ****************************************
+I, [2016-03-21T11:36:15.573591 #24565]  INFO -- default-ubuntu-1404: [0;36mincluded: /tmp/kitchen/roles/telusdigital.logrotate/tasks/install.yml for localhost[0m
+I, [2016-03-21T11:36:15.583747 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:36:15.583834 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.logrotate : Install Packages | apt] *************************
+I, [2016-03-21T11:36:20.985329 #24565]  INFO -- default-ubuntu-1404: [0;32mok: [localhost] => (item=[u'logrotate'])[0m
+I, [2016-03-21T11:36:20.991606 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:36:20.991672 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.logrotate : include] ****************************************
+I, [2016-03-21T11:36:21.056976 #24565]  INFO -- default-ubuntu-1404: [0;36mincluded: /tmp/kitchen/roles/telusdigital.logrotate/tasks/configure.yml for localhost[0m
+I, [2016-03-21T11:36:21.075991 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:36:21.076123 #24565]  INFO -- default-ubuntu-1404: TASK [telusdigital.logrotate : Upload Config | mongod] *************************
+I, [2016-03-21T11:36:21.342774 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:36:21.349060 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:36:21.349139 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : include] ***********************************************
+I, [2016-03-21T11:36:21.417742 #24565]  INFO -- default-ubuntu-1404: [0;36mincluded: /tmp/kitchen/roles/ansible-mongodb/tasks/install.yml for localhost[0m
+I, [2016-03-21T11:36:21.431726 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:36:21.431895 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Install Packages | apt] ********************************
+I, [2016-03-21T11:36:49.030310 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost] => (item=[u'mongodb-org-server'])[0m
+I, [2016-03-21T11:36:49.036899 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:36:49.036972 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Install Packages | apt] ********************************
+I, [2016-03-21T11:37:17.651797 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost] => (item=[u'mongodb-org-shell'])[0m
+I, [2016-03-21T11:37:17.665208 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:17.665352 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Create Database User] **********************************
+I, [2016-03-21T11:37:17.750954 #24565]  INFO -- default-ubuntu-1404: [0;36mskipping: [localhost][0m
+I, [2016-03-21T11:37:17.760103 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:17.760237 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : include] ***********************************************
+I, [2016-03-21T11:37:17.860509 #24565]  INFO -- default-ubuntu-1404: [0;36mincluded: /tmp/kitchen/roles/ansible-mongodb/tasks/configure.yml for localhost[0m
+I, [2016-03-21T11:37:17.894075 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:17.894179 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Directory Exists | /var/run/mongod] ********************
+I, [2016-03-21T11:37:17.965666 #24565]  INFO -- default-ubuntu-1404: [0;36mskipping: [localhost][0m
+I, [2016-03-21T11:37:17.974258 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:17.974374 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Directory Exists | /var/lib/mongodb] *******************
+I, [2016-03-21T11:37:18.044753 #24565]  INFO -- default-ubuntu-1404: [0;36mskipping: [localhost][0m
+I, [2016-03-21T11:37:18.053383 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:18.053499 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Configure | MongoDB | pidfilepath] *********************
+I, [2016-03-21T11:37:18.267724 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:37:18.276699 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:18.276812 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Configure | MongoDB | mongodb auth enabled] ************
+I, [2016-03-21T11:37:18.350725 #24565]  INFO -- default-ubuntu-1404: [0;36mskipping: [localhost][0m
+I, [2016-03-21T11:37:18.359405 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:18.359507 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Configure | MongoDB | accepts external connections] ****
+I, [2016-03-21T11:37:18.593473 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:37:18.603576 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:18.603701 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : include] ***********************************************
+I, [2016-03-21T11:37:18.699654 #24565]  INFO -- default-ubuntu-1404: [0;36mincluded: /tmp/kitchen/roles/ansible-mongodb/tasks/logging.yml for localhost[0m
+I, [2016-03-21T11:37:18.751534 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:18.751645 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Directory Exists | /var/log/mongod] ********************
+I, [2016-03-21T11:37:18.825896 #24565]  INFO -- default-ubuntu-1404: [0;36mskipping: [localhost][0m
+I, [2016-03-21T11:37:18.840365 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:18.840489 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : File is Writable | /var/log/mongod/mongod.log] *********
+I, [2016-03-21T11:37:18.907379 #24565]  INFO -- default-ubuntu-1404: [0;36mskipping: [localhost][0m
+I, [2016-03-21T11:37:18.916625 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:18.916767 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Configure | MongoDB | logpath] *************************
+I, [2016-03-21T11:37:19.126411 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:37:19.134569 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:19.134680 #24565]  INFO -- default-ubuntu-1404: TASK [ansible-mongodb : Configure | MongoDB | logappend] ***********************
+I, [2016-03-21T11:37:19.357975 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:37:19.362002 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:19.362085 #24565]  INFO -- default-ubuntu-1404: RUNNING HANDLER [ansible-mongodb : Reload Service | mongodb] *******************
+I, [2016-03-21T11:37:20.433819 #24565]  INFO -- default-ubuntu-1404: [0;33mchanged: [localhost][0m
+I, [2016-03-21T11:37:20.439868 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:20.439999 #24565]  INFO -- default-ubuntu-1404: PLAY RECAP *********************************************************************
+I, [2016-03-21T11:37:20.440366 #24565]  INFO -- default-ubuntu-1404: [0;33mlocalhost[0m                  : [0;32mok[0m[0;32m=[0m[0;32m20[0m   [0;33mchanged[0m[0;33m=[0m[0;33m11[0m   unreachable=0    failed=0   
+I, [2016-03-21T11:37:20.440669 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:37:20.477831 #24565]  INFO -- default-ubuntu-1404: Finished converging <default-ubuntu-1404> (6m37.11s).
+I, [2016-03-21T11:37:20.478322 #24565]  INFO -- default-ubuntu-1404: -----> Setting up <default-ubuntu-1404>...
+W, [2016-03-21T11:37:20.479188 #24565]  WARN -- default-ubuntu-1404: Running legacy setup for 'Docker' Driver
+I, [2016-03-21T11:37:20.859941 #24565]  INFO -- default-ubuntu-1404: -----> Installing Busser (busser)
+I, [2016-03-21T11:37:52.330566 #24565]  INFO -- default-ubuntu-1404: Fetching: thor-0.19.0.gemFetching: thor-0.19.0.gem ( 18%)Fetching: thor-0.19.0.gem ( 35%)Fetching: thor-0.19.0.gem ( 53%)Fetching: thor-0.19.0.gem ( 71%)Fetching: thor-0.19.0.gem ( 89%)Fetching: thor-0.19.0.gem (100%)Fetching: thor-0.19.0.gem (100%)
+I, [2016-03-21T11:37:52.412195 #24565]  INFO -- default-ubuntu-1404: Successfully installed thor-0.19.0
+I, [2016-03-21T11:37:52.550555 #24565]  INFO -- default-ubuntu-1404: Fetching: busser-0.7.1.gemFetching: busser-0.7.1.gem ( 64%)Fetching: busser-0.7.1.gem (100%)Fetching: busser-0.7.1.gem (100%)
+I, [2016-03-21T11:37:52.595247 #24565]  INFO -- default-ubuntu-1404: Successfully installed busser-0.7.1
+I, [2016-03-21T11:37:52.595350 #24565]  INFO -- default-ubuntu-1404: 2 gems installed
+I, [2016-03-21T11:37:52.614429 #24565]  INFO -- default-ubuntu-1404: Installing Busser plugins: busser-serverspec
+I, [2016-03-21T11:38:57.574677 #24565]  INFO -- default-ubuntu-1404: Plugin serverspec installed (version 0.5.9)
+I, [2016-03-21T11:38:57.578344 #24565]  INFO -- default-ubuntu-1404: -----> Running postinstall for serverspec plugin
+I, [2016-03-21T11:39:20.302232 #24565]  INFO -- default-ubuntu-1404: Finished setting up <default-ubuntu-1404> (1m59.82s).
+I, [2016-03-21T11:39:20.302507 #24565]  INFO -- default-ubuntu-1404: -----> Verifying <default-ubuntu-1404>...
+W, [2016-03-21T11:39:20.303218 #24565]  WARN -- default-ubuntu-1404: Running legacy verify for 'Docker' Driver
+I, [2016-03-21T11:39:20.303528 #24565]  INFO -- default-ubuntu-1404: Preparing files for transfer
+I, [2016-03-21T11:39:20.658358 #24565]  INFO -- default-ubuntu-1404: Suite path directory /tmp/verifier/suites does not exist, skipping.
+I, [2016-03-21T11:39:20.669571 #24565]  INFO -- default-ubuntu-1404: Transferring files to <default-ubuntu-1404>
+I, [2016-03-21T11:39:21.109027 #24565]  INFO -- default-ubuntu-1404: -----> Running serverspec test suite
+I, [2016-03-21T11:39:21.119002 #24565]  INFO -- default-ubuntu-1404: -----> Installing Serverspec..
+I, [2016-03-21T11:40:39.180943 #24565]  INFO -- default-ubuntu-1404: Fetching: sfl-2.2.gemFetching: sfl-2.2.gem (100%)Fetching: sfl-2.2.gem (100%)
+I, [2016-03-21T11:40:39.265283 #24565]  INFO -- default-ubuntu-1404: Fetching: net-telnet-0.1.1.gemFetching: net-telnet-0.1.1.gem ( 94%)Fetching: net-telnet-0.1.1.gem (100%)Fetching: net-telnet-0.1.1.gem (100%)
+I, [2016-03-21T11:40:39.435267 #24565]  INFO -- default-ubuntu-1404: Fetching: net-ssh-3.0.2.gemFetching: net-ssh-3.0.2.gem (  9%)Fetching: net-ssh-3.0.2.gem ( 18%)Fetching: net-ssh-3.0.2.gem ( 27%)Fetching: net-ssh-3.0.2.gem ( 36%)Fetching: net-ssh-3.0.2.gem ( 45%)Fetching: net-ssh-3.0.2.gem ( 54%)Fetching: net-ssh-3.0.2.gem ( 63%)Fetching: net-ssh-3.0.2.gem ( 72%)Fetching: net-ssh-3.0.2.gem ( 81%)Fetching: net-ssh-3.0.2.gem ( 90%)Fetching: net-ssh-3.0.2.gem ( 99%)Fetching: net-ssh-3.0.2.gem (100%)Fetching: net-ssh-3.0.2.gem (100%)
+I, [2016-03-21T11:40:39.606625 #24565]  INFO -- default-ubuntu-1404: Fetching: net-scp-1.2.1.gemFetching: net-scp-1.2.1.gem ( 48%)Fetching: net-scp-1.2.1.gem ( 98%)Fetching: net-scp-1.2.1.gem (100%)Fetching: net-scp-1.2.1.gem (100%)
+I, [2016-03-21T11:40:39.722925 #24565]  INFO -- default-ubuntu-1404: Fetching: specinfra-2.54.1.gemFetching: specinfra-2.54.1.gem ( 21%)Fetching: specinfra-2.54.1.gem ( 43%)Fetching: specinfra-2.54.1.gem ( 64%)Fetching: specinfra-2.54.1.gem ( 86%)Fetching: specinfra-2.54.1.gem (100%)Fetching: specinfra-2.54.1.gem (100%)
+I, [2016-03-21T11:40:40.159437 #24565]  INFO -- default-ubuntu-1404: Fetching: multi_json-1.11.2.gemFetching: multi_json-1.11.2.gem ( 63%)Fetching: multi_json-1.11.2.gem (100%)Fetching: multi_json-1.11.2.gem (100%)
+I, [2016-03-21T11:40:40.266149 #24565]  INFO -- default-ubuntu-1404: Fetching: diff-lcs-1.2.5.gemFetching: diff-lcs-1.2.5.gem ( 33%)Fetching: diff-lcs-1.2.5.gem ( 66%)Fetching: diff-lcs-1.2.5.gem ( 99%)Fetching: diff-lcs-1.2.5.gem (100%)Fetching: diff-lcs-1.2.5.gem (100%)
+I, [2016-03-21T11:40:40.380923 #24565]  INFO -- default-ubuntu-1404: Fetching: rspec-support-3.4.1.gemFetching: rspec-support-3.4.1.gem ( 50%)Fetching: rspec-support-3.4.1.gem (100%)Fetching: rspec-support-3.4.1.gem (100%)
+I, [2016-03-21T11:40:40.539085 #24565]  INFO -- default-ubuntu-1404: Fetching: rspec-expectations-3.4.0.gemFetching: rspec-expectations-3.4.0.gem ( 21%)Fetching: rspec-expectations-3.4.0.gem ( 43%)Fetching: rspec-expectations-3.4.0.gem ( 65%)Fetching: rspec-expectations-3.4.0.gem ( 87%)Fetching: rspec-expectations-3.4.0.gem (100%)Fetching: rspec-expectations-3.4.0.gem (100%)
+I, [2016-03-21T11:40:40.723827 #24565]  INFO -- default-ubuntu-1404: Fetching: rspec-core-3.4.4.gemFetching: rspec-core-3.4.4.gem ( 11%)Fetching: rspec-core-3.4.4.gem ( 22%)Fetching: rspec-core-3.4.4.gem ( 34%)Fetching: rspec-core-3.4.4.gem ( 45%)Fetching: rspec-core-3.4.4.gem ( 56%)Fetching: rspec-core-3.4.4.gem ( 67%)Fetching: rspec-core-3.4.4.gem ( 79%)Fetching: rspec-core-3.4.4.gem ( 90%)Fetching: rspec-core-3.4.4.gem (100%)Fetching: rspec-core-3.4.4.gem (100%)
+I, [2016-03-21T11:40:40.874335 #24565]  INFO -- default-ubuntu-1404: Fetching: rspec-its-1.2.0.gemFetching: rspec-its-1.2.0.gem (100%)Fetching: rspec-its-1.2.0.gem (100%)
+I, [2016-03-21T11:40:41.020361 #24565]  INFO -- default-ubuntu-1404: Fetching: rspec-mocks-3.4.1.gemFetching: rspec-mocks-3.4.1.gem ( 22%)Fetching: rspec-mocks-3.4.1.gem ( 44%)Fetching: rspec-mocks-3.4.1.gem ( 65%)Fetching: rspec-mocks-3.4.1.gem ( 87%)Fetching: rspec-mocks-3.4.1.gem (100%)Fetching: rspec-mocks-3.4.1.gem (100%)
+I, [2016-03-21T11:40:41.141846 #24565]  INFO -- default-ubuntu-1404: Fetching: rspec-3.4.0.gemFetching: rspec-3.4.0.gem (100%)Fetching: rspec-3.4.0.gem (100%)
+I, [2016-03-21T11:40:41.454756 #24565]  INFO -- default-ubuntu-1404: Fetching: serverspec-2.31.0.gemFetching: serverspec-2.31.0.gem ( 42%)Fetching: serverspec-2.31.0.gem ( 85%)Fetching: serverspec-2.31.0.gem (100%)Fetching: serverspec-2.31.0.gem (100%)
+I, [2016-03-21T11:40:41.559818 #24565]  INFO -- default-ubuntu-1404: -----> serverspec installed (version 2.31.0)
+I, [2016-03-21T11:40:41.675791 #24565]  INFO -- default-ubuntu-1404: /opt/chef/embedded/bin/ruby -I/tmp/verifier/suites/serverspec -I/tmp/verifier/gems/gems/rspec-support-3.4.1/lib:/tmp/verifier/gems/gems/rspec-core-3.4.4/lib /opt/chef/embedded/bin/rspec --pattern /tmp/verifier/suites/serverspec/\*\*/\*_spec.rb --color --format documentation --default-path /tmp/verifier/suites/serverspec
+I, [2016-03-21T11:40:42.190175 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:40:42.190444 #24565]  INFO -- default-ubuntu-1404: ansible-mongodb ::default
+I, [2016-03-21T11:40:42.190677 #24565]  INFO -- default-ubuntu-1404:   Package "mongodb-org-server"
+I, [2016-03-21T11:40:42.432581 #24565]  INFO -- default-ubuntu-1404: [32m    should be installed by "apt"[0m
+I, [2016-03-21T11:40:42.432959 #24565]  INFO -- default-ubuntu-1404:   Package "mongodb-org-shell"
+I, [2016-03-21T11:40:42.465834 #24565]  INFO -- default-ubuntu-1404: [32m    should be installed by "apt"[0m
+I, [2016-03-21T11:40:42.467294 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:40:42.467427 #24565]  INFO -- default-ubuntu-1404: Finished in 0.27612 seconds (files took 0.45901 seconds to load)
+I, [2016-03-21T11:40:42.467918 #24565]  INFO -- default-ubuntu-1404: [32m2 examples, 0 failures[0m
+I, [2016-03-21T11:40:42.468346 #24565]  INFO -- default-ubuntu-1404: 
+I, [2016-03-21T11:40:42.564502 #24565]  INFO -- default-ubuntu-1404: Finished verifying <default-ubuntu-1404> (1m22.26s).
+I, [2016-03-21T11:40:42.565772 #24565]  INFO -- default-ubuntu-1404: -----> Destroying <default-ubuntu-1404>...
+I, [2016-03-21T11:40:42.663597 #24565]  INFO -- default-ubuntu-1404: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+I, [2016-03-21T11:40:42.664106 #24565]  INFO -- default-ubuntu-1404: root                24724               2396                0                   11:30               ?                   00:00:00            /sbin/init
+I, [2016-03-21T11:40:42.664241 #24565]  INFO -- default-ubuntu-1404: root                24796               24724               0                   11:30               ?                   00:00:00            /usr/sbin/sshd -D
+I, [2016-03-21T11:40:42.664337 #24565]  INFO -- default-ubuntu-1404: root                24804               24724               0                   11:30               ?                   00:00:00            cron
+I, [2016-03-21T11:40:42.664445 #24565]  INFO -- default-ubuntu-1404: syslog              24852               24724               0                   11:30               ?                   00:00:00            rsyslogd
+I, [2016-03-21T11:40:42.664504 #24565]  INFO -- default-ubuntu-1404: root                24884               24796               0                   11:30               ?                   00:00:00            sshd: kitchen [priv]
+I, [2016-03-21T11:40:42.664553 #24565]  INFO -- default-ubuntu-1404: prashant            24897               24884               0                   11:30               ?                   00:00:00            sshd: kitchen@pts/0
+I, [2016-03-21T11:40:53.650015 #24565]  INFO -- default-ubuntu-1404: 52b1bd71f4060c27ce74eb9986bb193463cdb78b30cc190fa5823eddd46ada18
+I, [2016-03-21T11:40:54.671041 #24565]  INFO -- default-ubuntu-1404: 52b1bd71f4060c27ce74eb9986bb193463cdb78b30cc190fa5823eddd46ada18
+I, [2016-03-21T11:40:54.686839 #24565]  INFO -- default-ubuntu-1404: Finished destroying <default-ubuntu-1404> (0m12.12s).
+I, [2016-03-21T11:40:54.687261 #24565]  INFO -- default-ubuntu-1404: Finished testing <default-ubuntu-1404> (10m24.61s).

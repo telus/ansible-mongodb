@@ -1,0 +1,24 @@
+---
+driver:
+  # using docker to test
+  name: docker
+  socket: unix:///var/run/docker.sock
+  use_sudo: false
+  disable_upstart: false
+  image: ubuntu-upstart:14.04
+  run_command: /sbin/init
+
+provisioner:
+  # use an ansible playbook to provision our server
+  name: ansible_playbook
+  # name of the host
+  hosts: test-kitchen
+  # list ansible galaxy requirements from meta/main.yml
+  requirements_path: requirements.yml
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  # suites (tests) found at /test/integration/$test-name . By default it will look for $test-name.yml
+  - name: default
