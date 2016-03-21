@@ -9,7 +9,6 @@
       mongodb_client: yes
       mongodb_server: yes
       mongodb_set_permissions: no
-      mongodb_server_vesion: "3.2"
 
   vars:
     domain: test.com

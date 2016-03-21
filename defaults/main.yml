@@ -1,5 +1,6 @@
 ---
 mongodb_user: mongodb
+mongodb_group: mongodb
 
 mongodb_runtime_root: "{{ runtime_root | default('/var/run') }}/mongod"
 mongodb_pidfile_path: "{{ mongodb_runtime_root }}/mongod.pid"
@@ -12,4 +13,6 @@ mongodb_server: no
 mongodb_accepts_external_connections: yes
 mongodb_auth_enabled: no
 mongodb_set_permissions: yes
-mongodb_server_vesion: latest
+mongodb_public_key: EA312927
+mongodb_list_file: 'deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse'
+

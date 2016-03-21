@@ -2,6 +2,7 @@
 
 [MongoDB](https://www.mongodb.org/) - document-oriented database
 
+[![Build Status](https://travis-ci.org/telusdigital/ansible-mongodb.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-mongodb)
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 
@@ -13,6 +14,7 @@ Description
 Tunables
 --------
 * `mongodb_user` (string) - User to run MongoDB as?
+* `mongodb_group` (string) - Group to run MongoDB as?
 * `mongodb_runtime_root` (string) - Directory for runtime data
 * `mongodb_pidfile_path` (string) - Path for pidfile
 * `mongodb_log_root` (string) - Directory for logs
@@ -22,6 +24,9 @@ Tunables
 * `mongodb_accepts_external_connections` (boolean) - Should MongoDB listen for connections beyond localhost?
 * `mongodb_auth_enabled` (boolean) - Require authentication?
 * `mongodb_set_permissions` (boolean) - yes|no It's set to no in the kitchen tests as the users and groups are not created. Otherwise this should be yes. It sets the appropriate permissions for Mongo.
+* `mongodb_public_key` (string) The mongdb public key. https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+* `mongodb_list_file` (string) The list file for mongodb. https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+
 
 Dependencies
 ------------
