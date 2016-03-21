@@ -21,6 +21,7 @@ Tunables
 * `mongodb_server` (boolean) - Install MongoDB server?
 * `mongodb_accepts_external_connections` (boolean) - Should MongoDB listen for connections beyond localhost?
 * `mongodb_auth_enabled` (boolean) - Require authentication?
+* `mongodb_set_permissions` (boolean) - yes|no It's set to no in the kitchen tests as the users and groups are not created. Otherwise this should be yes. It sets the appropriate permissions for Mongo.
 
 Dependencies
 ------------
