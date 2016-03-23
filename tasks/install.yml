@@ -12,7 +12,7 @@
 
 - name: Install Packages | apt
   apt: 
-    pkg: "{{ item }}"
+    name: "{{ item }}"
     state: present 
     update_cache: yes
   with_items:
@@ -32,7 +32,7 @@
 - name: Install Packages | apt
   apt:
     state: latest
-    pkg: "{{ item }}"
+    name: "{{ item }}"
   with_items:
     - mongodb-org-shell
   when: mongodb_client

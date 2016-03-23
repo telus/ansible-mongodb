@@ -5,6 +5,7 @@ dependencies:
     repository_url: "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
   - role: telusdigital.logrotate
     logrotate_name: mongod
+  - role: telusdigital.python
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"

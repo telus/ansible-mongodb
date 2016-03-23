@@ -9,6 +9,10 @@ describe 'ansible-mongodb::default' do
     it { should be_installed.by('apt') }
   end
 
+  describe package('pymongo') do
+    it { should be_installed.by('pip').with_version('3.2.2')}
+  end
+
   describe service('mongod') do
     it { should be_enabled }
   end
