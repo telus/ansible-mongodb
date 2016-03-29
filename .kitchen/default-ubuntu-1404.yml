@@ -1,7 +1,0 @@
----
-ssh_key: "/home/prashant/www/ansible-mongodb/.kitchen/docker_id_rsa"
-image_id: 37d251b3390d
-container_id: 04d3b6522d202d22e0232faed01e5815071401cc2ee2bc6db8491defabdb4e4e
-hostname: localhost
-port: 32774
-last_action: setup
