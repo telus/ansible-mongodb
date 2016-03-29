@@ -17,4 +17,12 @@ describe 'ansible-mongodb::default' do
     it { should be_enabled }
   end
 
+  describe port(27017) do
+    it { should be_listening.on('0.0.0.0').with('tcp') }
+  end
+
+  describe file('/var/run/mongod/mongod.pid') do
+    it { should exist }
+  end
+
 end

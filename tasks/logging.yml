@@ -29,8 +29,8 @@
   lineinfile:
     state: present
     dest: /etc/mongod.conf
-    regexp: '^#* *logpath ?\='
-    line: "logpath = {{ mongodb_log_path }}"
+    regexp: '^#* *path ?\:'
+    line: "  path: {{ mongodb_log_path }}"
   notify: service | mongodb | reloaded
   tags:
     - configuration
@@ -42,8 +42,8 @@
   lineinfile:
     state: present
     dest: /etc/mongod.conf
-    regexp: '^#* *logappend ?\='
-    line: 'logappend = true'
+    regexp: '^#* *logAppend ?\:'
+    line: '  logAppend: true'
   notify: service | mongodb | reloaded
   tags:
     - configuration

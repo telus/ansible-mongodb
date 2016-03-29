@@ -41,34 +41,35 @@
   lineinfile:
     state: present
     dest: /etc/mongod.conf
-    regexp: '^#* *pidfilepath ?\='
-    line: "pidfilepath = {{ mongodb_pidfile_path }}"
+    regexp: '^#* *processManagement:'
+    line: "processManagement: \n  pidFilePath: {{ mongodb_pidfile_path }}"
   notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration
     - pidfile
     - monitoring
-    - using-monit
 
-- name: Configure | MongoDB | mongodb auth enabled
+- name: Configure | MongoDB | pidfilepath
   lineinfile:
     state: present
     dest: /etc/mongod.conf
-    regexp: '^#* *auth ?\='
-    line: 'auth = true'
-  when: mongodb_auth_enabled
+    regexp: '^#* *pidFilePath:'
+    line: "  pidFilePath: {{ mongodb_pidfile_path }}"
   notify: service | mongodb | reloaded
   tags:
     - configuration
     - precise-configuration
-    - mongodb
+    - pidfile
+    - monitoring
+
 
 - name: Configure | MongoDB | accepts external connections
   lineinfile:
-    state: absent
+    state: present
     dest: /etc/mongod.conf
-    regexp: '^#* *bind_ip'
+    regexp: '^#* *bindIp:'
+    line: "  bindIp: 0.0.0.0"
   when: mongodb_accepts_external_connections
   notify: service | mongodb | reloaded
   tags:
