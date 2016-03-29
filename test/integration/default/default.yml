@@ -8,7 +8,6 @@
     - role: ansible-mongodb
       mongodb_client: yes
       mongodb_server: yes
-      mongodb_set_permissions: no
 
   vars:
     domain: test.com

@@ -31,7 +31,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *path ?\:'
     line: "  path: {{ mongodb_log_path }}"
-  notify: service | mongodb | reloaded
+  notify: service | mongodb | restarted
   tags:
     - configuration
     - precise-configuration
@@ -44,7 +44,7 @@
     dest: /etc/mongod.conf
     regexp: '^#* *logAppend ?\:'
     line: '  logAppend: true'
-  notify: service | mongodb | reloaded
+  notify: service | mongodb | restarted
   tags:
     - configuration
     - precise-configuration
