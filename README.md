@@ -22,7 +22,6 @@ Tunables
 * `mongodb_client` (boolean) - Install MongoDB client?
 * `mongodb_server` (boolean) - Install MongoDB server?
 * `mongodb_accepts_external_connections` (boolean) - Should MongoDB listen for connections beyond localhost?
-* `mongodb_auth_enabled` (boolean) - Require authentication?
 * `mongodb_set_permissions` (boolean) - yes|no It's set to no in the kitchen tests as the users and groups are not created. Otherwise this should be yes. It sets the appropriate permissions for Mongo.
 * `mongodb_public_key` (string) The mongdb public key. https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
 * `mongodb_list_file` (string) The list file for mongodb. https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/

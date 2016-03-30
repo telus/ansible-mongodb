@@ -11,7 +11,6 @@ mongodb_log_path: "{{ mongodb_log_root }}/mongod.log"
 mongodb_client: no
 mongodb_server: no
 mongodb_accepts_external_connections: yes
-mongodb_auth_enabled: no
 mongodb_set_permissions: yes
 mongodb_public_key: EA312927
 mongodb_list_file: 'deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse'
