@@ -1,13 +1,29 @@
 ---
+- name: Configure Mongo | Import the public key used by the package management system.
+  apt_key: 
+    keyserver: hkp://keyserver.ubuntu.com:80 
+    id: "{{ mongodb_public_key }}"
+    state: present
+
+- name: Configure Mongo | Create a list file for MongoDB.
+  apt_repository: 
+    repo: "{{ mongodb_list_file }}"
+    state: present
+
 - name: Install Packages | apt
-  apt:
-    state: latest
-    pkg: "{{ item }}"
+  apt: 
+    name: "{{ item }}"
+    state: present 
+    update_cache: yes
   with_items:
     - mongodb-org-server
   when: mongodb_server
 
-- name: Install Packages | pip
+- name: Install pip
+  easy_install:
+    name: pip
+
+- name: Install Packages | pymongo
   pip:
     state: latest
     name: pymongo
@@ -16,14 +32,7 @@
 - name: Install Packages | apt
   apt:
     state: latest
-    pkg: "{{ item }}"
+    name: "{{ item }}"
   with_items:
     - mongodb-org-shell
   when: mongodb_client
-
-- name: Create Database User
-  mongodb_user:
-    database: "{{ database_name | default(project) }}"
-    name: "{{ database_username | default(project) }}"
-    password: "{{ database_password | mandatory }}"
-  when: mongodb_server and mongodb_auth_enabled

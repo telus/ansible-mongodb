@@ -6,9 +6,10 @@
   roles:
     # name of role to test
     - role: ansible-mongodb
-      system_role: travis
-      project: travis
-      environment_tier: travis
-      domain: travis
-      mongodb_server: yes
       mongodb_client: yes
+      mongodb_server: yes
+
+  vars:
+    domain: test.com
+    project: test-project
+    environment_tier: development

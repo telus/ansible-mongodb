@@ -6,6 +6,7 @@
     owner: "{{ mongodb_user }}"
     group: "{{ mongodb_group }}"
     mode: 0775
+  when: mongodb_set_permissions
   tags:
     - directory-structure
     - logging
@@ -18,6 +19,7 @@
     owner: "{{ mongodb_user }}"
     group: "{{ mongodb_group }}"
     mode: 0664
+  when: mongodb_set_permissions
   tags:
     - permissions
     - logging
@@ -27,9 +29,9 @@
   lineinfile:
     state: present
     dest: /etc/mongod.conf
-    regexp: '^#* *logpath ?\='
-    line: "logpath = {{ mongodb_log_path }}"
-  notify: service | mongodb | reloaded
+    regexp: '^#* *path ?\:'
+    line: "  path: {{ mongodb_log_path }}"
+  notify: service | mongodb | restarted
   tags:
     - configuration
     - precise-configuration
@@ -40,9 +42,9 @@
   lineinfile:
     state: present
     dest: /etc/mongod.conf
-    regexp: '^#* *logappend ?\='
-    line: 'logappend = true'
-  notify: service | mongodb | reloaded
+    regexp: '^#* *logAppend ?\:'
+    line: '  logAppend: true'
+  notify: service | mongodb | restarted
   tags:
     - configuration
     - precise-configuration
